@@ -7,7 +7,6 @@
  */
 package org.alfresco.events.test;
 
-<<<<<<< HEAD:alfresco-events/src/test/java/org/alfresco/events/test/EventFactory.java
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -23,9 +22,6 @@ import org.alfresco.events.types.SiteEvent;
 import org.alfresco.events.types.SiteManagementEvent;
 import org.alfresco.events.types.SyncEvent;
 import org.alfresco.util.FileFilterMode.Client;
-=======
-import org.alfresco.events.types.ActivityEvent;
->>>>>>> parent of 7ab1082... Creates various events:alfresco-events-repo/src/test/java/org/alfresco/repo/events/EventFactory.java
 
 /**
  * Produces Events for testing
@@ -50,7 +46,6 @@ public class EventFactory
                   "{\"title\": \"exception.docx\", \"nodeRef\": \"workspace://SpacesStore\20a64aa3-392a-449b-abf7-3599a371cc0a\", \"page\": \"document-details?nodeRef=workspace://SpacesStore/20a64aa3-392a-449b-abf7-3599a371cc0a\"}"
                     , name, mimeType, 50l, "UTF-8");
     }
-<<<<<<< HEAD:alfresco-events/src/test/java/org/alfresco/events/test/EventFactory.java
     
     /**
      * Produces RepositoryEvent objects
@@ -132,6 +127,4 @@ public class EventFactory
         return events;
     }
   
-=======
->>>>>>> parent of 7ab1082... Creates various events:alfresco-events-repo/src/test/java/org/alfresco/repo/events/EventFactory.java
 }
