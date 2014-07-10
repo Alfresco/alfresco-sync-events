@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.alfresco.events.NodeVersion;
-import org.alfresco.util.FileFilterMode.Client;
+import org.alfresco.repo.Client;
 
 /**
  * Node versioned events.

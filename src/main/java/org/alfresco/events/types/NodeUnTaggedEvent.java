@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.alfresco.util.FileFilterMode.Client;
+import org.alfresco.repo.Client;
 
 /**
  * Node untagged event.

@@ -26,14 +26,6 @@
         <url>https://bamboo.alfresco.com/bamboo/browse/ALF</url>
     </ciManagement>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.alfresco</groupId>
-            <artifactId>alfresco-core</artifactId>
-            <version>4.2.a</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
     <build>
         <plugins>
             <plugin>

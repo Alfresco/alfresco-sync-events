@@ -9,7 +9,7 @@ package org.alfresco.events.types;
 
 import java.util.Date;
 
-import org.alfresco.util.FileFilterMode.Client;
+import org.alfresco.repo.Client;
 
 /**
  * Occurs when content is read.

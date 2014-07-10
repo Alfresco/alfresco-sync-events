@@ -7,7 +7,7 @@
  */
 package org.alfresco.events.types;
 
-import org.alfresco.util.FileFilterMode.Client;
+import org.alfresco.repo.Client;
 
 /**
  * An event that is generated and we are able to get information

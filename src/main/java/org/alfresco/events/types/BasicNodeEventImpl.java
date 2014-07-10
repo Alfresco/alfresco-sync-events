@@ -7,7 +7,7 @@
  */
 package org.alfresco.events.types;
 
-import org.alfresco.util.FileFilterMode.Client;
+import org.alfresco.repo.Client;
 
 /**
  * A Basic Event that occurs on an Alfresco node.

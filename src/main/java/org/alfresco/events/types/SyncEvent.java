@@ -7,7 +7,7 @@
  */
 package org.alfresco.events.types;
 
-import org.alfresco.util.FileFilterMode.Client;
+import org.alfresco.repo.Client;
 
 /**
  * Occurs on syncing of data between two Alfresco nodes.

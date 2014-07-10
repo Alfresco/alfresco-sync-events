@@ -9,7 +9,8 @@ package org.alfresco.events.types;
 
 import java.util.Date;
 
-import org.alfresco.util.FileFilterMode.Client;
+import org.alfresco.repo.Client;
+import org.alfresco.repo.Client.ClientType;
 
 /**
  * An event that occurs when using a web browser.
@@ -63,7 +64,7 @@ public class BrowserEvent extends EventImpl implements ClientEvent, SiteEvent
     @Override
     public Client getClient()
     {
-        return Client.webclient;
+        return Client.asType(ClientType.webclient);
     }
 
     @Override

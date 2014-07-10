@@ -21,7 +21,8 @@ import org.alfresco.events.types.RepositoryEventImpl;
 import org.alfresco.events.types.SiteEvent;
 import org.alfresco.events.types.SiteManagementEvent;
 import org.alfresco.events.types.SyncEvent;
-import org.alfresco.util.FileFilterMode.Client;
+import org.alfresco.repo.Client;
+import org.alfresco.repo.Client.ClientType;
 
 /**
  * Produces Events for testing
@@ -82,7 +83,7 @@ public class EventFactory
     public static ContentEvent createContentEvent(String siteId,  String username, String nodeId, String mimeType)
     {
         return new ContentReadRangeEvent(username,"alfresco.com", "t123", nodeId, siteId, TYPE_CONTENT,
-                    Client.ftp, "filename",mimeType, 50l, "UTF-8", "1-4");
+                    Client.asType(ClientType.ftp), "filename",mimeType, 50l, "UTF-8", "1-4");
     }
     
 
@@ -98,7 +99,7 @@ public class EventFactory
     public static SyncEvent createSyncEvent(String type, String username, String siteId,  String nodeId, String mimeType)
     {
         return new SyncEvent(type, username, "alfresco.com", "t123", nodeId, siteId, TYPE_CONTENT,
-                    Client.imap, "filename",mimeType, 50l, "UTF-8", "remote"+nodeId, "remote.alfresco.com", "sync2389");
+                    Client.asType(ClientType.cloud), "filename",mimeType, 50l, "UTF-8", "remote"+nodeId, "remote.alfresco.com", "sync2389");
     }
     
     /**
