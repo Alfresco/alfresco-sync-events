@@ -15,12 +15,17 @@ package org.alfresco.repo;
  */
 public class Client
 {
+    public Client()
+    {
+        super();
+    }
+
     public static enum ClientType
     {
         cifs, imap, webdav, nfs, script, webclient, ftp, cmis, admin, spp, cloud;
     }
 
-    private final ClientType type;
+    private ClientType type;
     
     public Client(ClientType type)
     {
