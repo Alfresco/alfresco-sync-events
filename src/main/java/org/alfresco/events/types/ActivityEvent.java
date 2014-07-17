@@ -41,7 +41,7 @@ public class ActivityEvent extends ContentEventImpl
         activityData = null;
     }
 
-    public static final String ACTIVITY_TYPE = "actvity.";
+    public static final String ACTIVITY_TYPE = "activity.";
     private static final long serialVersionUID = -8101613202921138060L;
     private final transient String activityData;
     
