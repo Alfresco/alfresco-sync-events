@@ -7,12 +7,17 @@
  */
 package org.alfresco.events.types;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.json.simple.JSONObject;
+
 /**
  * An event that occurs when managing an Alfresco Site, e.g Site creation
  * 
  * @author Gethin James
  */
-public class SiteManagementEvent extends RepositoryEventImpl implements SiteEvent
+public class SiteManagementEvent extends RepositoryEventImpl implements SiteEvent, DataItem
 {
     private static final long serialVersionUID = -7387933680171703729L;
     
@@ -95,4 +100,16 @@ public class SiteManagementEvent extends RepositoryEventImpl implements SiteEven
                     .append("]");
         return builder.toString();
     }
+
+	@Override
+	public String getDataAsJson() {
+		Map<String,String> data = new HashMap<>();
+		data.put("siteId", siteId);
+		data.put("title", title);		
+		data.put("visibility", visibility);
+		data.put("sitePreset", sitePreset);
+
+		JSONObject json = new JSONObject(data);
+		return json.toJSONString();
+	}
 }

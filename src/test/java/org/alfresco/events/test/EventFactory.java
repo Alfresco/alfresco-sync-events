@@ -15,6 +15,7 @@ import org.alfresco.events.types.ActivityEvent;
 import org.alfresco.events.types.BrowserEvent;
 import org.alfresco.events.types.ContentEvent;
 import org.alfresco.events.types.ContentReadRangeEvent;
+import org.alfresco.events.types.DataItem;
 import org.alfresco.events.types.Event;
 import org.alfresco.events.types.RepositoryEvent;
 import org.alfresco.events.types.RepositoryEventImpl;
@@ -110,6 +111,19 @@ public class EventFactory
      * @return
      */
     public static SiteEvent createSiteEvent(String type, String username, String siteId)
+    {
+        return new SiteManagementEvent(type, "t123", "alfresco.com", new Date().getTime(), username, siteId,
+                    "title for"+siteId, "desc for"+siteId, "PUBLIC", "site-dashboard");
+    }
+
+    /**
+     * Produces DataItem objects
+     * @param type
+     * @param username
+     * @param siteId
+     * @return
+     */
+    public static DataItem createDataItem(String type, String username, String siteId)
     {
         return new SiteManagementEvent(type, "t123", "alfresco.com", new Date().getTime(), username, siteId,
                     "title for"+siteId, "desc for"+siteId, "PUBLIC", "site-dashboard");
