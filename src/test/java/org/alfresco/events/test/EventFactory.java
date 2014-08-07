@@ -22,6 +22,7 @@ import org.alfresco.events.types.RepositoryEventImpl;
 import org.alfresco.events.types.SiteEvent;
 import org.alfresco.events.types.SiteManagementEvent;
 import org.alfresco.events.types.SyncEvent;
+import org.alfresco.events.types.UserManagementEvent;
 import org.alfresco.repo.Client;
 import org.alfresco.repo.Client.ClientType;
 
@@ -101,6 +102,21 @@ public class EventFactory
     {
         return new SyncEvent(type, username, "alfresco.com", "t123", nodeId, siteId, TYPE_CONTENT,
                     Client.asType(ClientType.cloud), "filename",mimeType, 50l, "UTF-8", "remote"+nodeId, "remote.alfresco.com", "sync2389");
+    }
+    
+    /**
+     * Produces UserManagementEvent objects
+     * @param type
+     * @param username
+     * @param managedUsername
+     * @param managedForename
+     * @param managedSurname
+     * @return
+     */
+    public static UserManagementEvent createSiteEvent(String type, String username, String managedUsername, String managedForename, String managedSurname)
+    {
+        return new UserManagementEvent(type, "t123", "alfresco.com", new Date().getTime(), username, managedUsername,
+                   managedForename, managedSurname);
     }
     
     /**
