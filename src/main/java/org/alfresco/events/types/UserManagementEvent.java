@@ -19,7 +19,7 @@ import org.json.simple.JSONObject;
  */
 public class UserManagementEvent extends RepositoryEventImpl implements DataItem
 {
-    private static final long serialVersionUID = -7387933680171703729L;
+    private static final long serialVersionUID = -19686678748247457L;
     
     private String managedUsername;
     private String managedForename;
@@ -44,7 +44,7 @@ public class UserManagementEvent extends RepositoryEventImpl implements DataItem
     public String toString()
     {
         StringBuilder builder = new StringBuilder();
-        builder.append("SiteManagementEvent [id=").append(this.id).append(", txnId=")
+        builder.append("UserManagementEvent [id=").append(this.id).append(", txnId=")
                     .append(this.txnId).append(", networkId=").append(this.networkId)
                     .append(", type=").append(this.type).append(", username=")
                     .append(this.username).append(", timestamp=").append(this.timestamp)
