@@ -12,6 +12,8 @@ import java.util.Date;
 import java.util.List;
 
 import org.alfresco.events.types.ActivityEvent;
+import org.alfresco.events.types.BasicNodeEvent;
+import org.alfresco.events.types.BasicNodeEventImpl;
 import org.alfresco.events.types.BrowserEvent;
 import org.alfresco.events.types.ContentEvent;
 import org.alfresco.events.types.ContentReadRangeEvent;
@@ -72,6 +74,17 @@ public class EventFactory
     public static BrowserEvent createBrowserEvent( String siteId, String username, String component, String action)
     {
         return new BrowserEvent(username,"alfresco.com", "t123", siteId, component, action, null, null);
+    }
+    
+    /**
+     * Produces BasicNodeEvent objects
+     * @param type
+     * @param username
+     * @return
+     */
+    public static BasicNodeEvent createBasicNodeEvent(String type, String username)
+    {
+        return new BasicNodeEventImpl(type, "t123", null, new Date().getTime(), username);
     }
     
     /**
