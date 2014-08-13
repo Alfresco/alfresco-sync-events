@@ -22,7 +22,7 @@ public class Client
 
     public static enum ClientType
     {
-        cifs, imap, webdav, nfs, script, webclient, ftp, cmis, admin, spp, cloud;
+        cifs, imap, webdav, nfs, script, webclient, ftp, cmis, admin, aos, cloud, salesforce;
     }
 
     private ClientType type;
