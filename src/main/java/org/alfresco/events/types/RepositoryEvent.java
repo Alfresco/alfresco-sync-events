@@ -13,9 +13,8 @@ package org.alfresco.events.types;
  * @author Gethin James
  * @author steveglover
  */
-public interface RepositoryEvent extends Event
+public interface RepositoryEvent extends TenantedEvent
 {
-    public String getNetworkId();
     public String getTxnId();
 
 }

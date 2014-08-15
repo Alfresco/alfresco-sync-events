@@ -47,7 +47,7 @@ public class EventFactory
      */
     public static ActivityEvent createActivityEvent(String type, String username, String nodeId, String siteId, String name, String mimeType)
     {
-        return new ActivityEvent(type, "t123", "alfresco.com", username, nodeId,siteId,null,null,
+        return new ActivityEvent(type, "t123", "alfresco.com", username, nodeId,siteId,null,Client.asType(ClientType.aos),
                   "{\"title\": \"exception.docx\", \"nodeRef\": \"workspace://SpacesStore\20a64aa3-392a-449b-abf7-3599a371cc0a\", \"page\": \"document-details?nodeRef=workspace://SpacesStore/20a64aa3-392a-449b-abf7-3599a371cc0a\"}"
                     , name, mimeType, 50l, "UTF-8");
     }
