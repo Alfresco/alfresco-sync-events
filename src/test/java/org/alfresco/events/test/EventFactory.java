@@ -11,6 +11,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.alfresco.events.activiti.ProcessDefinition;
+import org.alfresco.events.activiti.ProcessEvent;
+import org.alfresco.events.activiti.ProcessEventImpl;
+import org.alfresco.events.activiti.ProcessInstance;
+import org.alfresco.events.activiti.StepEvent;
+import org.alfresco.events.activiti.TaskEvent;
+import org.alfresco.events.activiti.VariableEvent;
 import org.alfresco.events.types.ActivityEvent;
 import org.alfresco.events.types.BasicNodeEvent;
 import org.alfresco.events.types.BasicNodeEventImpl;
@@ -158,6 +165,52 @@ public class EventFactory
                     "title for"+siteId, "desc for"+siteId, "PUBLIC", "site-dashboard");
     }
     
+    public static ProcessEvent createActivitiProcessEvent(String type, String username)
+    {
+       ProcessDefinition processDefinition = new ProcessDefinition("my-process:1:17", "my-process:1:17", "http://www.activiti.org/test", "my-process", null, null);
+       ProcessInstance process = new ProcessInstance("18", null, "bKey", "my-process:1:17");     
+       return new ProcessEventImpl(type, username, new Date().getTime(), null, processDefinition, process);
+    }
+ 
+    public static StepEvent createActivitiStepEvent(String type, String username, String stepId)
+    {
+        StepEvent step = new StepEvent(type, username, new Date().getTime(), null);
+        step.setProcessDefinitionId("my-process:1:17");
+        step.setProcessInstanceId("18");
+        step.setStepId(stepId);
+        step.setStepName("name"+stepId);
+        step.setState(StepEvent.ACTIVE);
+        return step;
+    }
+ 
+    public static TaskEvent createActivitiTaskEvent(String type, String username, String stepId)
+    {
+        long now = new Date().getTime();
+        TaskEvent task = new TaskEvent(type, username, now, null);
+        task.setProcessDefinitionId("my-process:1:19");
+        task.setProcessInstanceId("19");
+        task.setStepId(stepId);
+        task.setStepName("name"+stepId);
+        task.setTaskDefinitionKey("key1");
+        task.setPriority(5);
+        task.setAssignee(username);
+        task.setOwner(username);
+        task.setCreateTime(now);
+        task.setState(StepEvent.ACTIVE);
+        return task;
+    }
+    
+    public static VariableEvent createActivitiVariableEvent(String type, String username, String varName)
+    {
+        VariableEvent event = new VariableEvent(type,username,new Date().getTime(),null);
+        event.setVariableName(varName);
+        event.setVariableType("String");
+        event.setVariableValue(varName.toUpperCase());
+        event.setProcessDefinitionId("my-process:1:19");
+        event.setProcessInstanceId("19");
+        return event;
+    }
+    
     public static List<Event> createEvents(String siteId, String username)
     {
         List<Event> events = new ArrayList<Event>();
@@ -168,6 +221,16 @@ public class EventFactory
         events.add(createRepositoryEvent("login", username));
         events.add(createSyncEvent("to.cloud", username, siteId, "node134", "application/pdf"));                    
         events.add(createSiteEvent("site.create", username, siteId));
+        return events;
+    }
+    
+    public static List<Event> createActivitiEvents(String username)
+    {
+        List<Event> events = new ArrayList<Event>();
+        events.add(createActivitiProcessEvent("ACTIVITI_PROCESS_STARTED", username));
+        events.add(createActivitiStepEvent("ACTIVITI_ACTIVITY_STARTED", username, "3"));
+        events.add(createActivitiTaskEvent("ACTIVITI_TASK_CREATED", username, "4"));
+        events.add(createActivitiVariableEvent("ACTIVITI_VARIABLE_CREATED", username, "var55"));
         return events;
     }
   

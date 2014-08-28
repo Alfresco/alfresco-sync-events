@@ -27,6 +27,9 @@ public class TestEventCreation
     {
         List<Event> events = EventFactory.createEvents("mysite", "my user");
         assertNotNull(events);
+        
+        events = EventFactory.createActivitiEvents("my user");
+        assertNotNull(events);
     }
 
 }
