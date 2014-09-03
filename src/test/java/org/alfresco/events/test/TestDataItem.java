@@ -2,12 +2,14 @@ package org.alfresco.events.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
+import org.alfresco.events.activiti.PackageVariableEvent;
 import org.alfresco.events.types.DataItem;
-import org.alfresco.events.types.SiteManagementEvent;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -25,11 +27,47 @@ public class TestDataItem {
 	public void setUp() throws Exception {
 	}
 
+    @Test
+    public void testUser() throws ParseException {
+        
+        DataItem item = (DataItem) EventFactory.createUserEvent("user.update", "userna", "barbie", "Barbie", "Doll");
+        JSONParser parser = new JSONParser();
+        JSONObject jo = (JSONObject) parser.parse(item.getDataAsJson());
+        assertNotNull(jo);
+        assertEquals ("barbie",jo.get("managedUsername"));
+        assertEquals ("Barbie",jo.get("managedForename"));
+        assertEquals ("Doll",jo.get("managedSurname"));      
+    }
+
+    @Test
+    public void testPackageVariableEvent() throws ParseException {
+        
+        PackageVariableEvent pve = new PackageVariableEvent(EventFactory.createActivitiVariableEvent("ACTIVITI_VARIABLE_CREATED", "user", "bpm_package"));
+        JSONParser parser = new JSONParser();
+        JSONObject jo = (JSONObject) parser.parse(pve.getDataAsJson());
+        assertNotNull(jo);
+        assertNull(jo.get("items"));
+        pve.setItems(null);
+        jo = (JSONObject) parser.parse(pve.getDataAsJson());
+        assertNotNull(jo);
+        assertNull(jo.get("items"));
+        List<String> nodeList = new ArrayList<String>();
+        pve.setItems(nodeList);
+        jo = (JSONObject) parser.parse(pve.getDataAsJson());
+        assertNotNull(jo);
+        assertNull(jo.get("items"));
+        nodeList.add("node1");
+        nodeList.add("node2");
+        jo = (JSONObject) parser.parse(pve.getDataAsJson());
+        assertNotNull(jo);
+        Object items = jo.get("items");
+        assertNotNull(items);
+    }
+    
 	@Test
-	public void testGetDataAsJson() throws ParseException {
+	public void testSite() throws ParseException {
 		String siteId = "nice site";
-		DataItem item = new SiteManagementEvent("site.create", "t123", "alfresco.com", new Date().getTime(), "userna", siteId,
-                "title for"+siteId, "desc for"+siteId, "PUBLIC", "site-dashboard");
+		DataItem item = (DataItem) EventFactory.createSiteEvent("site.create", "userna", "nice site");
 		assertNotNull(item);
 		JSONParser parser = new JSONParser();
 		JSONObject jo = (JSONObject) parser.parse(item.getDataAsJson());

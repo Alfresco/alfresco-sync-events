@@ -41,11 +41,6 @@ public class VariableEvent extends AbstractActivitiEvent implements InProcess
      * @return The VariableType of the variable.
      */
     String variableType;
-
-    /**
-     * The id of the process definition of the process instance.
-     */
-    String processDefinitionId;
     
     /** unique identifier */
     String processInstanceId;
@@ -85,16 +80,6 @@ public class VariableEvent extends AbstractActivitiEvent implements InProcess
         this.variableType = variableType;
     }
 
-    public String getProcessDefinitionId()
-    {
-        return this.processDefinitionId;
-    }
-
-    public void setProcessDefinitionId(String processDefinitionId)
-    {
-        this.processDefinitionId = processDefinitionId;
-    }
-
     public String getProcessInstanceId()
     {
         return this.processInstanceId;
@@ -115,6 +100,20 @@ public class VariableEvent extends AbstractActivitiEvent implements InProcess
         this.taskId = taskId;
     }
 
+    public void copyFrom(VariableEvent source)
+    {
+      this.id = source.id;
+      this.networkId = source.networkId;
+      this.timestamp = source.timestamp;
+      this.type = source.type;
+      this.username  = source.username;  
+      this.processInstanceId = source.processInstanceId;
+      this.taskId = source.taskId;
+      this.variableName = source.variableName;
+      this.variableType = source.variableType;
+      this.variableValue = source.variableValue;
+    }
+    
     @Override
     public String toString()
     {
@@ -124,9 +123,9 @@ public class VariableEvent extends AbstractActivitiEvent implements InProcess
                     .append(this.timestamp).append(", networkId=").append(this.networkId)
                     .append(", variableName=").append(this.variableName).append(", variableValue=")
                     .append(this.variableValue).append(", variableType=").append(this.variableType)
-                    .append(", processDefinitionId=").append(this.processDefinitionId)
                     .append(", processInstanceId=").append(this.processInstanceId)
                     .append(", taskId=").append(this.taskId).append("]");
         return builder.toString();
     }
+
 }

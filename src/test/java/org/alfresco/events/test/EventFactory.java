@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.alfresco.events.activiti.PackageVariableEvent;
 import org.alfresco.events.activiti.ProcessDefinition;
 import org.alfresco.events.activiti.ProcessEvent;
 import org.alfresco.events.activiti.ProcessEventImpl;
@@ -133,7 +134,7 @@ public class EventFactory
      * @param managedSurname
      * @return
      */
-    public static UserManagementEvent createSiteEvent(String type, String username, String managedUsername, String managedForename, String managedSurname)
+    public static UserManagementEvent createUserEvent(String type, String username, String managedUsername, String managedForename, String managedSurname)
     {
         return new UserManagementEvent(type, "t123", "alfresco.com", new Date().getTime(), username, managedUsername,
                    managedForename, managedSurname);
@@ -206,7 +207,6 @@ public class EventFactory
         event.setVariableName(varName);
         event.setVariableType("String");
         event.setVariableValue(varName.toUpperCase());
-        event.setProcessDefinitionId("my-process:1:19");
         event.setProcessInstanceId("19");
         return event;
     }
@@ -231,6 +231,7 @@ public class EventFactory
         events.add(createActivitiStepEvent("ACTIVITI_ACTIVITY_STARTED", username, "3"));
         events.add(createActivitiTaskEvent("ACTIVITI_TASK_CREATED", username, "4"));
         events.add(createActivitiVariableEvent("ACTIVITI_VARIABLE_CREATED", username, "var55"));
+        events.add(new PackageVariableEvent(createActivitiVariableEvent("ACTIVITI_VARIABLE_CREATED", username, "bpm_package")));
         return events;
     }
   

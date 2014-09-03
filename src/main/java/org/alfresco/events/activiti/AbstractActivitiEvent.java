@@ -102,5 +102,4 @@ public class AbstractActivitiEvent implements TenantedEvent, Serializable
     {
         this.networkId = networkId;
     }
-
 }

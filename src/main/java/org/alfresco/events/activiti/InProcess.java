@@ -6,6 +6,7 @@
  * agreement is prohibited. 
  */
 package org.alfresco.events.activiti;
+
 /**
  * Something that takes place in a running Activiti process.
  *
@@ -14,6 +15,5 @@ package org.alfresco.events.activiti;
  */
 public interface InProcess
 {
-    public String getProcessDefinitionId();
     public String getProcessInstanceId();
 }
