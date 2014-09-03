@@ -8,6 +8,7 @@
 package org.alfresco.events.test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -27,6 +28,7 @@ import org.alfresco.events.types.ContentEvent;
 import org.alfresco.events.types.ContentReadRangeEvent;
 import org.alfresco.events.types.DataItem;
 import org.alfresco.events.types.Event;
+import org.alfresco.events.types.NodeAddedEvent;
 import org.alfresco.events.types.RepositoryEvent;
 import org.alfresco.events.types.RepositoryEventImpl;
 import org.alfresco.events.types.SiteEvent;
@@ -93,6 +95,22 @@ public class EventFactory
     public static BasicNodeEvent createBasicNodeEvent(String type, String username)
     {
         return new BasicNodeEventImpl(type, "t123", null, new Date().getTime(), username);
+    }
+    
+    /**
+     * Produces BasicNodeEvent objects
+     * @param type
+     * @param username
+     * @return
+     */
+    public static NodeAddedEvent createNodeAddedEvent(String type, String username, String nodeId, String siteId)
+    {
+        List<String> paths = Arrays.asList("path1", "path2");
+        List<String> n1 = Arrays.asList("n1", "n2");
+        List<String> m1 = Arrays.asList("m1", "m2");
+        List<List<String>> pathNodeIds = Arrays.asList(n1, m1);
+        return new NodeAddedEvent(34567899l, username, "t123", new Date().getTime(), "alfresco.com", siteId, nodeId, TYPE_CONTENT,
+        paths, pathNodeIds, username, new Date().getTime(), Client.asType(ClientType.aos),null, null);
     }
     
     /**
@@ -221,6 +239,7 @@ public class EventFactory
         events.add(createRepositoryEvent("login", username));
         events.add(createSyncEvent("to.cloud", username, siteId, "node134", "application/pdf"));                    
         events.add(createSiteEvent("site.create", username, siteId));
+        events.add(createBasicNodeEvent("basic.node", username));
         return events;
     }
     
