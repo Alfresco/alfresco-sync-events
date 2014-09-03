@@ -143,6 +143,63 @@ public class TaskEvent extends StepEvent implements Serializable
         return builder.toString();
     }
 
+    @Override
+    public int hashCode()
+    {
+        final int prime = 31;
+        int result = super.hashCode();
+        result = prime * result + ((this.assignee == null) ? 0 : this.assignee.hashCode());
+        result = prime * result + ((this.category == null) ? 0 : this.category.hashCode());
+        result = prime * result + ((this.description == null) ? 0 : this.description.hashCode());
+        result = prime * result + ((this.dueTime == null) ? 0 : this.dueTime.hashCode());
+        result = prime * result + ((this.owner == null) ? 0 : this.owner.hashCode());
+        result = prime * result + this.priority;
+        result = prime * result
+                    + ((this.taskDefinitionKey == null) ? 0 : this.taskDefinitionKey.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (this == obj) return true;
+        if (!super.equals(obj)) return false;
+        if (getClass() != obj.getClass()) return false;
+        TaskEvent other = (TaskEvent) obj;
+        if (this.assignee == null)
+        {
+            if (other.assignee != null) return false;
+        }
+        else if (!this.assignee.equals(other.assignee)) return false;
+        if (this.category == null)
+        {
+            if (other.category != null) return false;
+        }
+        else if (!this.category.equals(other.category)) return false;
+        if (this.description == null)
+        {
+            if (other.description != null) return false;
+        }
+        else if (!this.description.equals(other.description)) return false;
+        if (this.dueTime == null)
+        {
+            if (other.dueTime != null) return false;
+        }
+        else if (!this.dueTime.equals(other.dueTime)) return false;
+        if (this.owner == null)
+        {
+            if (other.owner != null) return false;
+        }
+        else if (!this.owner.equals(other.owner)) return false;
+        if (this.priority != other.priority) return false;
+        if (this.taskDefinitionKey == null)
+        {
+            if (other.taskDefinitionKey != null) return false;
+        }
+        else if (!this.taskDefinitionKey.equals(other.taskDefinitionKey)) return false;
+        return true;
+    }
+
   /** the parent task for which this task is a subtask */
   //String getParentTaskId();
   

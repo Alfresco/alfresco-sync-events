@@ -128,4 +128,54 @@ public class VariableEvent extends AbstractActivitiEvent implements InProcess
         return builder.toString();
     }
 
+    @Override
+    public int hashCode()
+    {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result
+                    + ((this.processInstanceId == null) ? 0 : this.processInstanceId.hashCode());
+        result = prime * result + ((this.taskId == null) ? 0 : this.taskId.hashCode());
+        result = prime * result + ((this.variableName == null) ? 0 : this.variableName.hashCode());
+        result = prime * result + ((this.variableType == null) ? 0 : this.variableType.hashCode());
+        result = prime * result
+                    + ((this.variableValue == null) ? 0 : this.variableValue.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (getClass() != obj.getClass()) return false;
+        VariableEvent other = (VariableEvent) obj;
+        if (this.processInstanceId == null)
+        {
+            if (other.processInstanceId != null) return false;
+        }
+        else if (!this.processInstanceId.equals(other.processInstanceId)) return false;
+        if (this.taskId == null)
+        {
+            if (other.taskId != null) return false;
+        }
+        else if (!this.taskId.equals(other.taskId)) return false;
+        if (this.variableName == null)
+        {
+            if (other.variableName != null) return false;
+        }
+        else if (!this.variableName.equals(other.variableName)) return false;
+        if (this.variableType == null)
+        {
+            if (other.variableType != null) return false;
+        }
+        else if (!this.variableType.equals(other.variableType)) return false;
+        if (this.variableValue == null)
+        {
+            if (other.variableValue != null) return false;
+        }
+        else if (!this.variableValue.equals(other.variableValue)) return false;
+        return true;
+    }
+
 }

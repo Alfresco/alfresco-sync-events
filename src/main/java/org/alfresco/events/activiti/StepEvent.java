@@ -181,4 +181,86 @@ public class StepEvent extends AbstractActivitiEvent implements InProcess
                     .append(this.duration).append(", state=").append(this.state).append("]");
         return builder.toString();
     }
+
+    @Override
+    public int hashCode()
+    {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.activityType == null) ? 0 : this.activityType.hashCode());
+        result = prime * result
+                    + ((this.behaviorClass == null) ? 0 : this.behaviorClass.hashCode());
+        result = prime * result + ((this.createTime == null) ? 0 : this.createTime.hashCode());
+        result = prime * result + ((this.duration == null) ? 0 : this.duration.hashCode());
+        result = prime * result + ((this.endTime == null) ? 0 : this.endTime.hashCode());
+        result = prime
+                    * result
+                    + ((this.processDefinitionId == null) ? 0 : this.processDefinitionId.hashCode());
+        result = prime * result
+                    + ((this.processInstanceId == null) ? 0 : this.processInstanceId.hashCode());
+        result = prime * result + ((this.state == null) ? 0 : this.state.hashCode());
+        result = prime * result + ((this.stepId == null) ? 0 : this.stepId.hashCode());
+        result = prime * result + ((this.stepName == null) ? 0 : this.stepName.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (getClass() != obj.getClass()) return false;
+        StepEvent other = (StepEvent) obj;
+        if (this.activityType == null)
+        {
+            if (other.activityType != null) return false;
+        }
+        else if (!this.activityType.equals(other.activityType)) return false;
+        if (this.behaviorClass == null)
+        {
+            if (other.behaviorClass != null) return false;
+        }
+        else if (!this.behaviorClass.equals(other.behaviorClass)) return false;
+        if (this.createTime == null)
+        {
+            if (other.createTime != null) return false;
+        }
+        else if (!this.createTime.equals(other.createTime)) return false;
+        if (this.duration == null)
+        {
+            if (other.duration != null) return false;
+        }
+        else if (!this.duration.equals(other.duration)) return false;
+        if (this.endTime == null)
+        {
+            if (other.endTime != null) return false;
+        }
+        else if (!this.endTime.equals(other.endTime)) return false;
+        if (this.processDefinitionId == null)
+        {
+            if (other.processDefinitionId != null) return false;
+        }
+        else if (!this.processDefinitionId.equals(other.processDefinitionId)) return false;
+        if (this.processInstanceId == null)
+        {
+            if (other.processInstanceId != null) return false;
+        }
+        else if (!this.processInstanceId.equals(other.processInstanceId)) return false;
+        if (this.state == null)
+        {
+            if (other.state != null) return false;
+        }
+        else if (!this.state.equals(other.state)) return false;
+        if (this.stepId == null)
+        {
+            if (other.stepId != null) return false;
+        }
+        else if (!this.stepId.equals(other.stepId)) return false;
+        if (this.stepName == null)
+        {
+            if (other.stepName != null) return false;
+        }
+        else if (!this.stepName.equals(other.stepName)) return false;
+        return true;
+    }
 }

@@ -74,4 +74,28 @@ public class PackageVariableEvent extends VariableEvent implements DataItem
         this.items = items;
     }
 
+    @Override
+    public int hashCode()
+    {
+        final int prime = 31;
+        int result = super.hashCode();
+        result = prime * result + ((this.items == null) ? 0 : this.items.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (this == obj) return true;
+        if (!super.equals(obj)) return false;
+        if (getClass() != obj.getClass()) return false;
+        PackageVariableEvent other = (PackageVariableEvent) obj;
+        if (this.items == null)
+        {
+            if (other.items != null) return false;
+        }
+        else if (!this.items.equals(other.items)) return false;
+        return true;
+    }
+
 }

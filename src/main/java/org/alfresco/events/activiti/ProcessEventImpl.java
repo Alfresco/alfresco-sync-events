@@ -67,4 +67,35 @@ public class ProcessEventImpl extends AbstractActivitiEvent implements ProcessEv
         return builder.toString();
     }
 
+    @Override
+    public int hashCode()
+    {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((this.process == null) ? 0 : this.process.hashCode());
+        result = prime * result
+                    + ((this.processDefinition == null) ? 0 : this.processDefinition.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (getClass() != obj.getClass()) return false;
+        ProcessEventImpl other = (ProcessEventImpl) obj;
+        if (this.process == null)
+        {
+            if (other.process != null) return false;
+        }
+        else if (!this.process.equals(other.process)) return false;
+        if (this.processDefinition == null)
+        {
+            if (other.processDefinition != null) return false;
+        }
+        else if (!this.processDefinition.equals(other.processDefinition)) return false;
+        return true;
+    }
+
 }
