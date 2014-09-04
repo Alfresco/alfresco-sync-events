@@ -7,6 +7,7 @@
  */
 package org.alfresco.events;
 
+// TODO I don't think this is needed, it's part of desktop sync.
 public enum ChangeEventType
 {
 	ADD, REMOVE, CHANGE;
