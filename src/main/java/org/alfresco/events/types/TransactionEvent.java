@@ -17,32 +17,16 @@ package org.alfresco.events.types;
 public abstract class TransactionEvent extends RepositoryEventImpl implements TransactionOrderingAware
 {
     private static final long serialVersionUID = -3217767152720757859L;
-    
-    protected Long seqNumber;
-    
+
     public TransactionEvent()
     {
         super();
     }
 
     public TransactionEvent(long seqNumber, String type, String txnId, String networkId, long timestamp,
-                String username)
+                String username, String alfrescoClientId)
     {
-        super(type, txnId, networkId, timestamp, username);
-        this.seqNumber = seqNumber;
+        super(seqNumber, type, txnId, networkId, timestamp, username, alfrescoClientId);
     }
-
-    @Override
-    public Long getSeqNumber()
-    {
-        return this.seqNumber;
-    }
-
-    public void setSeqNumber(Long seqNumber)
-    {
-        this.seqNumber = seqNumber;
-    }
-    
-
 
 }

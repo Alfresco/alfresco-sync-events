@@ -37,7 +37,7 @@ public class SiteManagementEvent extends RepositoryEventImpl implements SiteEven
                 String username, String siteId, String title, String description,
                 String visibility, String sitePreset)
     {
-        super(type, txnId, networkId, timestamp, username);
+        super(-1, type, txnId, networkId, timestamp, username, null);
         this.siteId = siteId;
         this.title = title;
         this.description = description;

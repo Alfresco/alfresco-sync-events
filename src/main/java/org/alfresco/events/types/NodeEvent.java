@@ -22,7 +22,7 @@ import org.alfresco.repo.Client;
  * @author steveglover
  *
  */
-public class NodeEvent extends BasicNodeEventImpl implements Serializable, NodeInfoEvent, TransactionOrderingAware
+public class NodeEvent extends BasicNodeEventImpl implements Serializable, NodeInfoEvent
 {
 	private static final long serialVersionUID = 1632258418479600707L;
 
@@ -32,9 +32,6 @@ public class NodeEvent extends BasicNodeEventImpl implements Serializable, NodeI
 	protected Set<String> aspects;
 	protected Map<String, Serializable> properties = new HashMap<String, Serializable>();
 
-	// Seq number relative to the transaction in which the event occurs
-	protected Long seqNumber;
-	
     // TODO checksum?
 	// TODO changeId?
 
@@ -45,10 +42,10 @@ public class NodeEvent extends BasicNodeEventImpl implements Serializable, NodeI
 	@SuppressWarnings("unchecked")
 	public NodeEvent(long seqNumber, String name, String type, String txnId, long timestamp, String networkId, String siteId, 
                    String nodeId, String nodeType, List<String> paths, List<List<String>> parentNodeIds, String username,
-                   Long nodeModificationTime, Client client, Set<String> aspects, Map<String, Serializable> properties)
+                   Long nodeModificationTime, Client client, String alfrescoClientId, Set<String> aspects,
+                   Map<String, Serializable> properties)
     {
-         super(type, txnId, networkId,timestamp,username, nodeId,  siteId, nodeType, name, client);
-         this.seqNumber = seqNumber;
+         super(seqNumber, type, txnId, networkId, timestamp,username, nodeId,  siteId, nodeType, name, client, alfrescoClientId);
          this.paths = (List<String>) (paths==null?Collections.emptyList():Collections.unmodifiableList(paths));
          this.parentNodeIds = (List<List<String>>) (parentNodeIds==null?Collections.emptyList():Collections.unmodifiableList(parentNodeIds));
          this.nodeModificationTime = nodeModificationTime;
@@ -122,20 +119,6 @@ public class NodeEvent extends BasicNodeEventImpl implements Serializable, NodeI
     public void setParentNodeIds(List<List<String>> parentNodeIds)
     {
         this.parentNodeIds = parentNodeIds;
-    }
-
-    /*
-     * @see org.alfresco.events.types.TransactionOrderingAware#getSeqNumber()
-     */
-    @Override
-    public Long getSeqNumber()
-    {
-        return this.seqNumber;
-    }
-
-    public void setSeqNumber(Long seqNumber)
-    {
-        this.seqNumber = seqNumber;
     }
 
     @Override

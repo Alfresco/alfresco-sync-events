@@ -39,11 +39,11 @@ public class NodeUpdatedEvent extends NodeEvent
 	public NodeUpdatedEvent(long seqNumber, String name, String txnId, long time, String networkId, String siteId, String nodeId, String nodeType,
 	        List<String> paths, List<List<String>> pathNodeIds, String userId, Long modificationTime, Map<String, Property> propertiesAdded,
 			Set<String> propertiesRemoved, Map<String, Property> propertiesChanged,
-			Set<String> aspectsAdded, Set<String> aspectsRemoved, Client client, Set<String> aspects,
-			Map<String, Serializable> properties)
+			Set<String> aspectsAdded, Set<String> aspectsRemoved, Client client, String alfrescoClientId,
+			Set<String> aspects, Map<String, Serializable> properties)
 	{
 		super(seqNumber, name, EVENT_TYPE, txnId, time, networkId, siteId, nodeId, nodeType, paths, pathNodeIds, userId,
-				modificationTime, client, aspects, properties);
+				modificationTime, client, alfrescoClientId, aspects, properties);
 		this.propertiesAdded = propertiesAdded;
 		this.propertiesRemoved = propertiesRemoved;
 		this.propertiesChanged = propertiesChanged;

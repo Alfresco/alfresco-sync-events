@@ -51,7 +51,7 @@ public class BrowserEvent extends EventImpl implements ClientEvent, SiteEvent
     public BrowserEvent(String username, String networkId, String txnId, String siteId,
                 String component, String action, String agent, String attributes)
     {
-        super(BROWSER_EVENT_TYPE, new Date().getTime(), username);
+        super(-1, BROWSER_EVENT_TYPE, new Date().getTime(), username);
         this.siteId = siteId;
         this.txnId = txnId;
         this.networkId = networkId;

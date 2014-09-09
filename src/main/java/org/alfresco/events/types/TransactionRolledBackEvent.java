@@ -23,9 +23,10 @@ public class TransactionRolledBackEvent extends TransactionEvent
 	{
 	}
 
-	public TransactionRolledBackEvent(long seqNumber, String txnId, String networkId, long timestamp, String username)
+	public TransactionRolledBackEvent(long seqNumber, String txnId, String networkId, long timestamp, String username,
+			String alfrescoClientId)
 	{
-		super(seqNumber, EVENT_TYPE, txnId, networkId, timestamp, username);
+		super(seqNumber, EVENT_TYPE, txnId, networkId, timestamp, username, alfrescoClientId);
 	}
 
 	@Override
