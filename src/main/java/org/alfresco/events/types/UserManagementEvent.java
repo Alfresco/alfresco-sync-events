@@ -33,7 +33,7 @@ public class UserManagementEvent extends RepositoryEventImpl implements DataItem
     public UserManagementEvent(String type, String txnId, String networkId, long timestamp,
                 String username, String managedUsername, String managedForename, String managedSurname)
     {
-        super(-1, type, txnId, networkId, timestamp, username, null);
+        super(type, txnId, networkId, timestamp, username);
         
         this.managedUsername = managedUsername;
         this.managedForename = managedForename;

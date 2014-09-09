@@ -70,7 +70,7 @@ public class EventFactory
      */
     public static RepositoryEvent createRepositoryEvent(String type, String username)
     {
-        return new RepositoryEventImpl(1, type, "t123", "alfresco.com", new Date().getTime(), username, null);
+        return new RepositoryEventImpl(type, "t123", "alfresco.com", new Date().getTime(), username);
     }
     
     /**
@@ -94,7 +94,7 @@ public class EventFactory
      */
     public static BasicNodeEvent createBasicNodeEvent(String type, String username)
     {
-        return new BasicNodeEventImpl(1, type, "t123", null, new Date().getTime(), username, null);
+        return new BasicNodeEventImpl(type, "t123", null, new Date().getTime(), username);
     }
     
     /**
@@ -110,7 +110,7 @@ public class EventFactory
         List<String> m1 = Arrays.asList("m1", "m2");
         List<List<String>> pathNodeIds = Arrays.asList(n1, m1);
         return new NodeAddedEvent(34567899l, username, "t123", new Date().getTime(), "alfresco.com", siteId, nodeId, TYPE_CONTENT,
-        paths, pathNodeIds, username, new Date().getTime(), Client.asType(ClientType.aos), null, null, null);
+        paths, pathNodeIds, username, new Date().getTime(), Client.asType(ClientType.aos),null, null);
     }
     
     /**

@@ -13,7 +13,6 @@ import org.alfresco.repo.Client;
  * A Basic Event that occurs on an Alfresco node.
  * 
  * @author Gethin James
- * @author sglover
  */
 public class BasicNodeEventImpl extends RepositoryEventImpl implements BasicNodeEvent
 {
@@ -23,7 +22,6 @@ public class BasicNodeEventImpl extends RepositoryEventImpl implements BasicNode
     protected String siteId;
     protected String nodeType;
     protected Client client;
-    protected String alfrescoClientId;
     protected String name;
     
     public BasicNodeEventImpl()
@@ -31,23 +29,20 @@ public class BasicNodeEventImpl extends RepositoryEventImpl implements BasicNode
         super();
     }
 
-    public BasicNodeEventImpl(long sequenceNumber, String type, String txnId, String networkId, long timestamp,
-    		String username, String alfrescoClientId)
+    public BasicNodeEventImpl(String type, String txnId, String networkId, long timestamp, String username)
     {
-        super(sequenceNumber, type, txnId, networkId, timestamp, username, alfrescoClientId);
+        super(type, txnId, networkId, timestamp, username);
     }
 
-    public BasicNodeEventImpl(long sequenceNumber, String type, String txnId, String networkId, long timestamp,
-                String username, String nodeId, String siteId, String nodeType, String name, Client client,
-                String alfrescoClientId)
+    public BasicNodeEventImpl(String type, String txnId, String networkId, long timestamp,
+                String username, String nodeId, String siteId, String nodeType, String name, Client client)
     {
-        super(sequenceNumber, type, txnId, networkId, timestamp, username, alfrescoClientId);
+        super(type, txnId, networkId, timestamp, username);
         this.nodeId = nodeId;
         this.siteId = siteId;
         this.nodeType = nodeType;
         this.client = client;
         this.name = name;
-        this.alfrescoClientId = alfrescoClientId;
     }
     
     /*

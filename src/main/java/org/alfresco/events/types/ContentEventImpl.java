@@ -31,10 +31,9 @@ public class ContentEventImpl extends BasicNodeEventImpl implements ContentEvent
     }
     
     public ContentEventImpl(String type, String username, String networkId, String txnId,  String nodeId,
-                            String siteId, String nodeType, Client client, String name, String mimeType, long size,
-                            String encoding)
+                            String siteId, String nodeType, Client client, String name, String mimeType, long size, String encoding)
     {
-        super(-1, type, txnId, networkId, new Date().getTime(), username, nodeId, siteId, nodeType, name, client, null);
+        super(type, txnId, networkId, new Date().getTime(), username, nodeId, siteId, nodeType, name, client);
         this.mimeType = mimeType;
         this.size = size;
         this.encoding = encoding;
@@ -43,7 +42,7 @@ public class ContentEventImpl extends BasicNodeEventImpl implements ContentEvent
     public ContentEventImpl(String type, String username, String networkId, long timestamp, String txnId,  String nodeId,
                 String siteId, String nodeType, Client client, String name, String mimeType, long size, String encoding)
     {
-        super(-1, type, txnId, networkId, timestamp, username, nodeId, siteId, nodeType, name, client, null);
+        super(type, txnId, networkId, timestamp, username, nodeId, siteId, nodeType, name, client);
         this.mimeType = mimeType;
         this.size = size;
         this.encoding = encoding;

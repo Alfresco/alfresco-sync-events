@@ -23,10 +23,9 @@ public class TransactionCommittedEvent extends TransactionEvent
 	{
 	}
 
-	public TransactionCommittedEvent(long seqNumber, String txnId, String networkId, long timestamp, String username,
-			String alfrescoClientId)
+	public TransactionCommittedEvent(long seqNumber, String txnId, String networkId, long timestamp, String username)
 	{
-		super(seqNumber, EVENT_TYPE, txnId, networkId, timestamp, username, alfrescoClientId);
+		super(seqNumber, EVENT_TYPE, txnId, networkId, timestamp, username);
 	}
 
 	@Override

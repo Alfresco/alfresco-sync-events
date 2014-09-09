@@ -16,37 +16,23 @@ import java.io.Serializable;
  */
 public class RepositoryEventImpl extends EventImpl implements RepositoryEvent, Serializable
 {
-    private static final long serialVersionUID = 8016433304529447871L;
+    private static final long serialVersionUID = 3890205829919466099L;
 
-	protected String txnId;
+    protected String txnId;
     protected String networkId; // network/tenant
-
-    protected String alfrescoClientId;
-
+    
     public RepositoryEventImpl()
     {
     }
 
-    public RepositoryEventImpl(long seqNumber, String type, String txnId, String networkId,
-    		long timestamp, String username, String alfrescoClientId)
+    public RepositoryEventImpl(String type, String txnId, String networkId, long timestamp, String username)
     {
-        super(seqNumber, type, timestamp, username);
+        super(type, timestamp, username);
         this.txnId = txnId;
         this.networkId = networkId;
-        this.alfrescoClientId = alfrescoClientId;
     }
-
-	public String getAlfrescoClientId()
-	{
-		return alfrescoClientId;
-	}
-
-	public void setAlfrescoClientId(String alfrescoClientId)
-	{
-		this.alfrescoClientId = alfrescoClientId;
-	}
-
-	public String getNetworkId()
+    
+    public String getNetworkId()
     {
         return networkId;
     }
