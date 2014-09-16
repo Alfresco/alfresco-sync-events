@@ -32,9 +32,10 @@ public class NodeFavouritedEvent extends NodeEvent
 
 	public NodeFavouritedEvent(long seqNumber, String name, String txnId, long time, String networkId, String siteId,
 			String nodeId, String nodeType, List<String> paths, List<List<String>> pathNodeIds, String userId,
-			Long modificationTime, Client client, Set<String> aspects, Map<String, Serializable> properties)
+			Long modificationTime, Client client, String alfrescoClientId, 
+			Set<String> aspects, Map<String, Serializable> properties)
 	{
 		super(seqNumber, name, EVENT_TYPE, txnId, time, networkId, siteId, nodeId, nodeType, paths, pathNodeIds, userId,
-				modificationTime, client, aspects, properties);
+				modificationTime, client, alfrescoClientId, aspects, properties);
 	}
 }

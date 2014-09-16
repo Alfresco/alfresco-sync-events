@@ -17,6 +17,7 @@ public interface Fields
 {
     public static final String FIELD_ID = "id";
     public static final String FIELD_CLIENT_ID = "clientId";
+    public static final String FIELD_ALFRESCO_CLIENT_ID = "alfrescoClientId";
     public static final String FIELD_NAME = "name";
     public static final String FIELD_NODE_NEW_NAME = "newNodeName";
     public static final String FIELD_CHECKED_OUT_NODE_ID = "checkedOutNodeId";
@@ -40,7 +41,7 @@ public interface Fields
 	public static final String FIELD_TO_PARENT_NODE_IDS = "toParentNodeIds";
 	public static final String FIELD_NODE_TYPE = "nodeType";
 	public static final String FIELD_ASPECTS = "nodeAspects";
-	public static final String FIELD_PROPERTIES = "nodeProperties";
+	public static final String FIELD_NODE_PROPERTIES = "nodeProperties";
 	public static final String FIELD_NODE_MODIFICATION_TIME = "nodeModificationTime";
 	public static final String FIELD_IS_FILTERED = "isFiltered";
 	public static final String FIELD_SIZE = "size";
@@ -53,6 +54,7 @@ public interface Fields
     public static final String FIELD_PRIMARY_TO_PATH = "primaryToPath";
     public static final String FIELD_CHECKSUM = "checksum";
     public static final String FIELD_SUBSCRIBER_ID = "subscriberId";
+    public static final String FIELD_SUBSCRIPTION_ID = "subscriptionId";
     public static final String FIELD_SUBSCRIPTION_IDS = "subscriptionIds";
     public static final String FIELD_CREATED_AT = "createdAt";
     public static final String FIELD_TXN_STATE = "txnState";

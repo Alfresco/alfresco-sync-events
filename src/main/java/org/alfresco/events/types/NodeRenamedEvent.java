@@ -35,10 +35,11 @@ public class NodeRenamedEvent extends NodeEvent
 	
 	public NodeRenamedEvent(long seqNumber, String oldName, String newName, String txnId, long time, String networkId, String siteId,
 			String nodeId, String nodeType, List<String> paths, List<List<String>> parentNodeIds, String userId,
-			Long modificationTime, List<String> toPaths, Client client, Set<String> aspects, Map<String, Serializable> properties)
+			Long modificationTime, List<String> toPaths, Client client, String alfrescoClientId, 
+			Set<String> aspects, Map<String, Serializable> properties)
 	{
 		super(seqNumber, oldName, EVENT_TYPE, txnId, time, networkId, siteId, nodeId, nodeType, paths,
-				parentNodeIds, userId, modificationTime, client, aspects, properties);
+				parentNodeIds, userId, modificationTime, client, alfrescoClientId, aspects, properties);
 		this.toPaths = toPaths;
 		this.newName = newName;
 	}

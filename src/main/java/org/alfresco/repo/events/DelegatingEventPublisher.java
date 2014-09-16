@@ -21,23 +21,42 @@ package org.alfresco.repo.events;
 import org.alfresco.events.types.Event;
 
 /**
- * An implementation of EventPublisher that does nothing.
+ * An implementation of EventPublisher that delegates to another implementation
  *
  * @author Gethin James
  * @since 5.0
  */
-public class NoOpEventPublisher implements EventPublisher {
+public class DelegatingEventPublisher implements EventPublisher {
 
+    EventPublisher delegate;
+    
     @Override
     public void publishEvent(Event event)
     {
-        //Do nothing
+        if (delegate!=null) delegate.publishEvent(event);
     }
 
     @Override
     public void publishEvent(EventPreparator prep)
     {
-        //Do nothing
+        if (delegate!=null) delegate.publishEvent(prep);
+    }
+
+    /**
+     * Register an EventPublisher to do the work
+     * @param delegate EventPublisher
+     */
+    public void registerDelegate(EventPublisher delegate)
+    {
+        this.delegate = delegate;
+    }
+    
+    /**
+     * UnRegister an EventPublisher
+     */
+    public void unregisterDelegate()
+    {
+        this.delegate = null;
     }
 	
 }

@@ -8,8 +8,9 @@
 package org.alfresco.events.types;
 
 import java.io.Serializable;
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -22,7 +23,7 @@ import org.alfresco.repo.Client;
  * @author steveglover
  *
  */
-public class NodeEvent extends BasicNodeEventImpl implements Serializable, NodeInfoEvent, TransactionOrderingAware
+public class NodeEvent extends BasicNodeEventImpl implements Serializable, NodeInfoEvent
 {
 	private static final long serialVersionUID = 1632258418479600707L;
 
@@ -30,11 +31,8 @@ public class NodeEvent extends BasicNodeEventImpl implements Serializable, NodeI
 	protected List<String> paths; // all paths, first one is the primary
 	protected List<List<String>> parentNodeIds; // all paths, first one is the primary
 	protected Set<String> aspects;
-	protected Map<String, Serializable> properties = new HashMap<String, Serializable>();
+	protected Map<String, Serializable> nodeProperties = new HashMap<String, Serializable>();
 
-	// Seq number relative to the transaction in which the event occurs
-	protected Long seqNumber;
-	
     // TODO checksum?
 	// TODO changeId?
 
@@ -45,15 +43,15 @@ public class NodeEvent extends BasicNodeEventImpl implements Serializable, NodeI
 	@SuppressWarnings("unchecked")
 	public NodeEvent(long seqNumber, String name, String type, String txnId, long timestamp, String networkId, String siteId, 
                    String nodeId, String nodeType, List<String> paths, List<List<String>> parentNodeIds, String username,
-                   Long nodeModificationTime, Client client, Set<String> aspects, Map<String, Serializable> properties)
+                   Long nodeModificationTime, Client client, String alfrescoClientId, Set<String> aspects,
+                   Map<String, Serializable> nodeProperties)
     {
-         super(type, txnId, networkId,timestamp,username, nodeId,  siteId, nodeType, name, client);
-         this.seqNumber = seqNumber;
-         this.paths = (List<String>) (paths==null?Collections.emptyList():Collections.unmodifiableList(paths));
-         this.parentNodeIds = (List<List<String>>) (parentNodeIds==null?Collections.emptyList():Collections.unmodifiableList(parentNodeIds));
+         super(seqNumber, type, txnId, networkId, timestamp,username, nodeId,  siteId, nodeType, name, client, alfrescoClientId);
+         this.paths = (List<String>) (paths==null?new ArrayList<>():paths);
+         this.parentNodeIds = (List<List<String>>) (parentNodeIds==null?new ArrayList<>():parentNodeIds);
          this.nodeModificationTime = nodeModificationTime;
-         this.aspects = (Set<String>)(aspects==null?Collections.emptySet():Collections.unmodifiableSet(aspects));
-         this.properties =  (Map<String, Serializable>)(properties==null?Collections.emptyMap():Collections.unmodifiableMap(properties));
+         this.aspects = (Set<String>)(aspects==null?new HashSet<>():aspects);
+         this.nodeProperties =  (Map<String, Serializable>)(nodeProperties==null?new HashMap<>():nodeProperties);
     }
 
 	public Set<String> getAspects()
@@ -66,14 +64,14 @@ public class NodeEvent extends BasicNodeEventImpl implements Serializable, NodeI
 		this.aspects = aspects;
 	}
 
-	public Map<String, Serializable> getProperties()
+	public Map<String, Serializable> getNodeProperties()
 	{
-		return properties;
+		return nodeProperties;
 	}
 
-	public void setProperties(Map<String, Serializable> properties)
+	public void setNodeProperties(Map<String, Serializable> nodeProperties)
 	{
-		this.properties = properties;
+		this.nodeProperties = nodeProperties;
 	}
 
     public Long getNodeModificationTime()
@@ -122,20 +120,6 @@ public class NodeEvent extends BasicNodeEventImpl implements Serializable, NodeI
     public void setParentNodeIds(List<List<String>> parentNodeIds)
     {
         this.parentNodeIds = parentNodeIds;
-    }
-
-    /*
-     * @see org.alfresco.events.types.TransactionOrderingAware#getSeqNumber()
-     */
-    @Override
-    public Long getSeqNumber()
-    {
-        return this.seqNumber;
-    }
-
-    public void setSeqNumber(Long seqNumber)
-    {
-        this.seqNumber = seqNumber;
     }
 
     @Override

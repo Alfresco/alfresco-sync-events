@@ -41,10 +41,10 @@ public class NodeMovedEvent extends NodeEvent
 	public NodeMovedEvent(long seqNumber, String oldName, String newName, String txnId, long time, String networkId, String siteId,
 			String nodeId, String nodeType, List<String> paths, List<List<String>> parentNodeIds, String userId,
 			Long modificationTime, List<String> toPaths, List<List<String>> toParentNodeIds, Client client,
-			Set<String> aspects, Map<String, Serializable> properties)
+			String alfrescoClientId, Set<String> aspects, Map<String, Serializable> properties)
 	{
 		super(seqNumber, oldName, EVENT_TYPE, txnId, time, networkId, siteId, nodeId, nodeType, paths, parentNodeIds,
-				userId, modificationTime, client, aspects, properties);
+				userId, modificationTime, client, alfrescoClientId, aspects, properties);
 		this.newName = newName;
 		this.toPaths = toPaths;
 		this.toParentNodeIds = toParentNodeIds;

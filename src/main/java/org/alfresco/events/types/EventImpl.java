@@ -16,41 +16,55 @@ import java.util.UUID;
  * @author steveglover
  *
  */
-public abstract class EventImpl implements Event, Serializable
+public abstract class EventImpl implements Event, TransactionOrderingAware, Serializable
 {
-	private static final long serialVersionUID = 5491215044908832482L;
+	private static final long serialVersionUID = 6734450593395365207L;
 
 	protected String id; // event id
 	protected String type;
-    protected String username;
+	protected String username;
 
 	// Event (creation) timestamp. Note separate timestamp field (even though Mongo stores timestamp in the object id, it is not a very
 	// accurate timestamp)
 	protected Long timestamp;
 
+	// Seq number relative to the transaction in which the event occurs
+    protected long seqNumber;
+
 	public EventImpl()
 	{
 	}
 
-	public EventImpl(String type, long timestamp, String username)
+	public EventImpl(long seqNumber, String type, long timestamp, String username)
 	{
+		this.seqNumber = seqNumber;
 		this.type = type;
 		this.timestamp = timestamp;
 		this.id = UUID.randomUUID().toString();
 		this.username = username;
 	}
-	
-    public void setUsername(String username)
-    {
-        this.username = username;
-    }
 
-    public String getUsername()
+	public Long getSeqNumber()
 	{
-        return username;
-    }
+		return seqNumber;
+	}
+	
+	public void setSeqNumber(long seqNumber)
+	{
+		this.seqNumber = seqNumber;
+	}
 
-    public String getId()
+	public void setUsername(String username)
+	{
+		this.username = username;
+	}
+
+	public String getUsername()
+	{
+		return username;
+	}
+
+	public String getId()
 	{
 		return id;
 	}

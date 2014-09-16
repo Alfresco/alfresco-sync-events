@@ -32,12 +32,11 @@ public interface EventPublisher
      * Publish the event
      * @param event Event
      */
-    public void publishEvent(Event event);
+    void publishEvent(Event event);
 
     /**
      * Publish the event using an EventPreparator
      * @param prep EventPreparator
      */
-    public void publishEvent(EventPreparator prep);
-    
+    void publishEvent(EventPreparator prep);
 }

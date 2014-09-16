@@ -28,7 +28,7 @@ public class ExceptionGeneratedEvent extends RepositoryEventImpl implements Tran
 
 	public ExceptionGeneratedEvent(long seqNumber, String txnId, long time, String networkId, Throwable cause, String username)
 	{
-		super(EVENT_TYPE, txnId, networkId, time, username);
+		super(seqNumber, EVENT_TYPE, txnId, networkId, time, username, null);
         this.seqNumber = seqNumber;
 		this.cause = cause;
 	}
@@ -40,11 +40,6 @@ public class ExceptionGeneratedEvent extends RepositoryEventImpl implements Tran
 	public void setCause(Throwable cause)
 	{
 		this.cause = cause;
-	}
-
-	@Override
-	public Long getSeqNumber() {
-		return seqNumber;
 	}
 
 	@Override
