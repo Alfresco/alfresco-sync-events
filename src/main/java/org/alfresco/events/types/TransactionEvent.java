@@ -7,6 +7,8 @@
  */
 package org.alfresco.events.types;
 
+import org.alfresco.repo.Client;
+
 /**
 *
 * A TransactionEvent event that is also aware of its ordering.
@@ -24,9 +26,9 @@ public abstract class TransactionEvent extends RepositoryEventImpl
     }
 
     public TransactionEvent(long seqNumber, String type, String txnId, String networkId, long timestamp,
-                String username, String alfrescoClientId)
+                String username, Client client)
     {
-        super(seqNumber, type, txnId, networkId, timestamp, username, alfrescoClientId);
+        super(seqNumber, type, txnId, networkId, timestamp, username, client);
     }
 
 }

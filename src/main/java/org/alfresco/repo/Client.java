@@ -26,16 +26,18 @@ public class Client
     }
 
     private ClientType type;
+    private String clientId;
     
-    public Client(ClientType type)
+    public Client(ClientType type, String clientId)
     {
         super();
         this.type = type;
+        this.clientId = clientId;
     }
 
     public static Client asType(ClientType type)
     {
-        return new Client(type);
+        return new Client(type, null);
     }
 
     public ClientType getType()
@@ -43,13 +45,17 @@ public class Client
         return this.type;
     }
 
+    public String getClientId()
+    {
+        return this.clientId;
+    }
+
     @Override
     public String toString()
     {
         StringBuilder builder = new StringBuilder();
-        builder.append("Client [type=").append(this.type).append("]");
+        builder.append("Client [type=").append(this.type).append(", clientId=")
+                    .append(this.clientId).append("]");
         return builder.toString();
     }
-    
-
 }

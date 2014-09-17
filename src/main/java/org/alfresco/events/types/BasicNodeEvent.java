@@ -13,7 +13,7 @@ package org.alfresco.events.types;
  * 
  * @author Gethin James
  */
-public interface BasicNodeEvent extends SiteEvent, ClientEvent
+public interface BasicNodeEvent extends SiteEvent
 {
     public String getNodeId();
     public String getNodeType();

@@ -31,10 +31,10 @@ public class NodeVersionEvent extends NodeEvent
 	
 	public NodeVersionEvent(long seqNumber, String name, String txnId, long time, String networkId, String siteId, String nodeId, String nodeType,
 			List<String> paths, List<List<String>> pathNodeIds, String userId, Long modificationTime, NodeVersion version,
-			Client client, String alfrescoClientId, Set<String> aspects, Map<String, Serializable> properties)
+			Client client, Set<String> aspects, Map<String, Serializable> properties)
 	{
 		super(seqNumber, name, EVENT_TYPE, txnId, time, networkId, siteId, nodeId, nodeType, paths, pathNodeIds, userId,
-				modificationTime, client, alfrescoClientId, aspects, properties);
+				modificationTime, client, aspects, properties);
 		this.version = version;
 	}
 

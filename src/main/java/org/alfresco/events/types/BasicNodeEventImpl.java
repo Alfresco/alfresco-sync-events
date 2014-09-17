@@ -22,8 +22,6 @@ public class BasicNodeEventImpl extends RepositoryEventImpl implements BasicNode
     protected String nodeId; // node id (guid)
     protected String siteId;
     protected String nodeType;
-    protected Client client;
-    protected String alfrescoClientId;
     protected String name;
     
     public BasicNodeEventImpl()
@@ -32,22 +30,20 @@ public class BasicNodeEventImpl extends RepositoryEventImpl implements BasicNode
     }
 
     public BasicNodeEventImpl(long sequenceNumber, String type, String txnId, String networkId, long timestamp,
-    		String username, String alfrescoClientId)
+    		String username, Client client)
     {
-        super(sequenceNumber, type, txnId, networkId, timestamp, username, alfrescoClientId);
+        super(sequenceNumber, type, txnId, networkId, timestamp, username, client);
     }
 
     public BasicNodeEventImpl(long sequenceNumber, String type, String txnId, String networkId, long timestamp,
-                String username, String nodeId, String siteId, String nodeType, String name, Client client,
-                String alfrescoClientId)
+                String username, String nodeId, String siteId, String nodeType, String name, Client client)
     {
-        super(sequenceNumber, type, txnId, networkId, timestamp, username, alfrescoClientId);
+        super(sequenceNumber, type, txnId, networkId, timestamp, username, client);
         this.nodeId = nodeId;
         this.siteId = siteId;
         this.nodeType = nodeType;
         this.client = client;
         this.name = name;
-        this.alfrescoClientId = alfrescoClientId;
     }
     
     /*
@@ -73,14 +69,6 @@ public class BasicNodeEventImpl extends RepositoryEventImpl implements BasicNode
     public String getNodeType()
     {
         return this.nodeType;
-    }
-    /*
-     * @see org.alfresco.events.types.BasicNodeEvent#getClient()
-     */
-    @Override
-    public Client getClient()
-    {
-        return this.client;
     }
 
     /*
@@ -114,10 +102,5 @@ public class BasicNodeEventImpl extends RepositoryEventImpl implements BasicNode
     public void setNodeType(String nodeType)
     {
         this.nodeType = nodeType;
-    }
-
-    public void setClient(Client client)
-    {
-        this.client = client;
     }
 }

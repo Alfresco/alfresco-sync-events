@@ -110,7 +110,7 @@ public class EventFactory
         List<String> m1 = Arrays.asList("m1", "m2");
         List<List<String>> pathNodeIds = Arrays.asList(n1, m1);
         return new NodeAddedEvent(34567899l, username, "t123", new Date().getTime(), "alfresco.com", siteId, nodeId, TYPE_CONTENT,
-        paths, pathNodeIds, username, new Date().getTime(), Client.asType(ClientType.aos), null, null, null);
+        paths, pathNodeIds, username, new Date().getTime(), Client.asType(ClientType.aos), null, null);
     }
     
     /**

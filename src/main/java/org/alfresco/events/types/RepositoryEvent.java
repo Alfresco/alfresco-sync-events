@@ -13,7 +13,7 @@ package org.alfresco.events.types;
  * @author Gethin James
  * @author steveglover
  */
-public interface RepositoryEvent extends TenantedEvent
+public interface RepositoryEvent extends TenantedEvent, ClientEvent
 {
     public String getTxnId();
 

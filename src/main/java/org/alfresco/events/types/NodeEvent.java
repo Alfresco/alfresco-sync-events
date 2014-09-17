@@ -43,16 +43,15 @@ public class NodeEvent extends BasicNodeEventImpl implements Serializable, NodeI
 	@SuppressWarnings("unchecked")
 	public NodeEvent(long seqNumber, String name, String type, String txnId, long timestamp, String networkId, String siteId, 
                    String nodeId, String nodeType, List<String> paths, List<List<String>> parentNodeIds, String username,
-                   Long nodeModificationTime, Client client, String alfrescoClientId, Set<String> aspects,
-                   Map<String, Serializable> nodeProperties)
+                   Long nodeModificationTime, Client client, Set<String> aspects, Map<String, Serializable> nodeProperties)
     {
-         super(seqNumber, type, txnId, networkId, timestamp,username, nodeId,  siteId, nodeType, name, client, alfrescoClientId);
+         super(seqNumber, type, txnId, networkId, timestamp,username, nodeId,  siteId, nodeType, name, client);
          this.paths = (List<String>) (paths==null?new ArrayList<>():paths);
          this.parentNodeIds = (List<List<String>>) (parentNodeIds==null?new ArrayList<>():parentNodeIds);
          this.nodeModificationTime = nodeModificationTime;
          this.aspects = (Set<String>)(aspects==null?new HashSet<>():aspects);
          this.nodeProperties =  (Map<String, Serializable>)(nodeProperties==null?new HashMap<>():nodeProperties);
-    }
+   }
 
 	public Set<String> getAspects()
 	{

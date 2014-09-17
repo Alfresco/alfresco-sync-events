@@ -9,6 +9,8 @@ package org.alfresco.events.types;
 
 import java.io.Serializable;
 
+import org.alfresco.repo.Client;
+
 /**
  * 
  * @author steveglover
@@ -18,35 +20,24 @@ public class RepositoryEventImpl extends EventImpl implements RepositoryEvent, S
 {
     private static final long serialVersionUID = 8016433304529447871L;
 
-	protected String txnId;
+    protected String txnId;
     protected String networkId; // network/tenant
-
-    protected String alfrescoClientId;
-
+    protected Client client;
+    
     public RepositoryEventImpl()
     {
     }
 
     public RepositoryEventImpl(long seqNumber, String type, String txnId, String networkId,
-    		long timestamp, String username, String alfrescoClientId)
+            long timestamp, String username, Client client)
     {
         super(seqNumber, type, timestamp, username);
         this.txnId = txnId;
         this.networkId = networkId;
-        this.alfrescoClientId = alfrescoClientId;
+        this.client = client;
     }
 
-	public String getAlfrescoClientId()
-	{
-		return alfrescoClientId;
-	}
-
-	public void setAlfrescoClientId(String alfrescoClientId)
-	{
-		this.alfrescoClientId = alfrescoClientId;
-	}
-
-	public String getNetworkId()
+    public String getNetworkId()
     {
         return networkId;
     }
@@ -67,13 +58,21 @@ public class RepositoryEventImpl extends EventImpl implements RepositoryEvent, S
     }
 
     @Override
+    public Client getClient()
+    {
+        return client;
+    }
+    
+    @Override
     public String toString()
     {
         StringBuilder builder = new StringBuilder();
         builder.append("RepositoryEventImpl [id=").append(this.id).append(", type=")
                     .append(this.type).append(", username=").append(this.username)
+                    .append(", client=").append(this.client)
                     .append(", timestamp=").append(this.timestamp).append(", txnId=")
                     .append(this.txnId).append(", networkId=").append(this.networkId).append("]");
         return builder.toString();
     }
+
 }

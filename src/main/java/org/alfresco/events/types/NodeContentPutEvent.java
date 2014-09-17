@@ -40,11 +40,10 @@ public class NodeContentPutEvent extends NodeEvent implements ContentEvent
 	
 	public NodeContentPutEvent(long seqNumber, String name, String txnId, long time, String networkId, String siteId, String nodeId,
 			String nodeType, List<String> paths, List<List<String>> pathNodeIds, String userId, Long modificationTime,
-			long size, String mimeType, String encoding, Client client, String alfrescoClientId, 
-			Set<String> aspects, Map<String, Serializable> properties)
+			long size, String mimeType, String encoding, Client client, Set<String> aspects, Map<String, Serializable> properties)
 	{
 		super(seqNumber, name, EVENT_TYPE, txnId, time, networkId, siteId, nodeId, nodeType,
-				paths, pathNodeIds, userId, modificationTime, client, alfrescoClientId, aspects, properties);
+				paths, pathNodeIds, userId, modificationTime, client, aspects, properties);
 		this.size = size;
 		this.mimeType = mimeType;
 		this.encoding = encoding;

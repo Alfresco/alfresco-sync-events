@@ -32,9 +32,9 @@ public class NodeUnLikedEvent extends NodeEvent
 
 	public NodeUnLikedEvent(long seqNumber, String name, String txnId, long time, String networkId, String siteId, String nodeId, String nodeType,
 			List<String> paths, List<List<String>> pathNodeIds, String userId, Long modificationTime, Client client,
-			String alfrescoClientId, Set<String> aspects, Map<String, Serializable> properties)
+			Set<String> aspects, Map<String, Serializable> properties)
 	{
 		super(seqNumber, name, EVENT_TYPE, txnId, time, networkId, siteId, nodeId, nodeType, paths, pathNodeIds, userId,
-				modificationTime, client, alfrescoClientId, aspects, properties);
+				modificationTime, client, aspects, properties);
 	}
 }
