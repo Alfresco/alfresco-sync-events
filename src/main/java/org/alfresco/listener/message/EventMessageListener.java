@@ -11,12 +11,13 @@ import org.alfresco.events.types.Event;
 
 
 /**
- * Something that listens to Alfresco events
+ * Something that listens to Alfresco events.
+ * Basic interface to implement when listening to Events.
  *
  * @author Gethin James
  * @since 5.0
  */
-public interface EventMessageListener<E extends Event> {
+public interface EventMessageListener {
 
-	void onEvent(E event);
+	void onEvent(Event event);
 }
