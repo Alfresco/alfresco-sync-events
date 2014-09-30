@@ -209,6 +209,7 @@ public class EventFactory
         task.setProcessDefinitionId("my-process:1:19");
         task.setProcessInstanceId("19");
         task.setStepId(stepId);
+        task.setTaskId("23");
         task.setStepName("name"+stepId);
         task.setTaskDefinitionKey("key1");
         task.setPriority(5);

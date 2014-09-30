@@ -28,6 +28,8 @@ public class TaskEvent extends StepEvent implements Serializable
     {
         super(type, username, timestamp, networkId);
     }
+    
+    String taskId;
 
     /** The id of the activity in the process defining this task or null if this is not related to a process */
     String taskDefinitionKey;
@@ -120,6 +122,16 @@ public class TaskEvent extends StepEvent implements Serializable
         this.category = category;
     }
 
+    public String getTaskId()
+    {
+        return this.taskId;
+    }
+
+    public void setTaskId(String taskId)
+    {
+        this.taskId = taskId;
+    }
+
     @Override
     public String toString()
     {
@@ -135,6 +147,7 @@ public class TaskEvent extends StepEvent implements Serializable
                     .append(this.behaviorClass).append(", createTime=").append(this.createTime)
                     .append(", endTime=").append(this.endTime).append(", duration=")
                     .append(this.duration).append(", state=").append(this.state)
+                    .append(", taskId=").append(this.taskId)
                     .append(", taskDefinitionKey=").append(this.taskDefinitionKey)
                     .append(", description=").append(this.description).append(", priority=")
                     .append(this.priority).append(", assignee=").append(this.assignee)
@@ -156,6 +169,7 @@ public class TaskEvent extends StepEvent implements Serializable
         result = prime * result + this.priority;
         result = prime * result
                     + ((this.taskDefinitionKey == null) ? 0 : this.taskDefinitionKey.hashCode());
+        result = prime * result + ((this.taskId == null) ? 0 : this.taskId.hashCode());
         return result;
     }
 
@@ -197,9 +211,15 @@ public class TaskEvent extends StepEvent implements Serializable
             if (other.taskDefinitionKey != null) return false;
         }
         else if (!this.taskDefinitionKey.equals(other.taskDefinitionKey)) return false;
+        if (this.taskId == null)
+        {
+            if (other.taskId != null) return false;
+        }
+        else if (!this.taskId.equals(other.taskId)) return false;
         return true;
     }
 
+ 
   /** the parent task for which this task is a subtask */
   //String getParentTaskId();
   
