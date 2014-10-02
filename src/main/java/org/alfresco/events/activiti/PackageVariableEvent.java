@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.alfresco.events.types.DataItem;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 
 /**  
  * An ActivitiEvent related to the Alfresco-specific "bpm_package" variable
@@ -49,7 +49,7 @@ public class PackageVariableEvent extends VariableEvent implements DataItem
         Map<String,String> data = new HashMap<>(); 
         if (items != null && !items.isEmpty())
         {
-          data.put("items", JSONArray.toJSONString(items));
+          data.put("items", JSONValue.toJSONString(items));
         }
         JSONObject json = new JSONObject(data);
         return json.toJSONString();
