@@ -12,8 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.alfresco.events.types.DataItem;
-import org.json.simple.JSONObject;
-import org.json.simple.JSONValue;
+import org.alfresco.repo.events.JsonUtil;
 
 /**  
  * An ActivitiEvent related to the Alfresco-specific "bpm_package" variable
@@ -24,7 +23,7 @@ import org.json.simple.JSONValue;
 public class PackageVariableEvent extends VariableEvent implements DataItem
 {
     private static final long serialVersionUID = -3709657782849421550L;
-    
+
     List<String> items;
     
     public PackageVariableEvent()
@@ -46,13 +45,13 @@ public class PackageVariableEvent extends VariableEvent implements DataItem
     @Override
     public String getDataAsJson()
     {
-        Map<String,String> data = new HashMap<>(); 
+        Map<String, List<String>> data = new HashMap<>();
         if (items != null && !items.isEmpty())
         {
-          data.put("items", JSONValue.toJSONString(items));
+            data.put("items", items);
         }
-        JSONObject json = new JSONObject(data);
-        return json.toJSONString();
+
+        return JsonUtil.writeData(data);
     }
 
     @Override
@@ -67,7 +66,8 @@ public class PackageVariableEvent extends VariableEvent implements DataItem
                     .append(", type=").append(this.type).append(", username=")
                     .append(this.username).append(", timestamp=").append(this.timestamp)
                     .append(", networkId=").append(this.networkId).append(", items=")
-                    .append(this.items).append("]");
+                    .append(this.items).append("]")
+                    .append(" Json is: "+getDataAsJson());
         return builder.toString();
     }
 

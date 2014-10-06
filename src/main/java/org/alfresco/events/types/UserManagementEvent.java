@@ -10,7 +10,7 @@ package org.alfresco.events.types;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.json.simple.JSONObject;
+import org.alfresco.repo.events.JsonUtil;
 
 /**
  * An event that occurs when managing an Alfresco User
@@ -53,14 +53,14 @@ public class UserManagementEvent extends RepositoryEventImpl implements DataItem
         return builder.toString();
     }
 
-	@Override
-	public String getDataAsJson() {
-		Map<String,String> data = new HashMap<>();
-		data.put("managedUsername", managedUsername);
-		data.put("managedForename", managedForename);		
-		data.put("managedSurname", managedSurname);
+    @Override
+    public String getDataAsJson()
+    {
+        Map<String, String> data = new HashMap<>();
+        data.put("managedUsername", managedUsername);
+        data.put("managedForename", managedForename);
+        data.put("managedSurname", managedSurname);
 
-		JSONObject json = new JSONObject(data);
-		return json.toJSONString();
-	}
+        return JsonUtil.writeData(data);
+    }
 }

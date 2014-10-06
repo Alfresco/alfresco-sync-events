@@ -14,7 +14,7 @@
     <packaging>jar</packaging>
 
     <properties>
-        <dependency.json-simple.version>1.1.1</dependency.json-simple.version>
+        <dependency.jackson.version>2.3.2</dependency.jackson.version>
     </properties>
 
     <dependencies>
@@ -25,15 +25,9 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.googlecode.json-simple</groupId>
-            <artifactId>json-simple</artifactId>
-            <version>${dependency.json-simple.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>junit</groupId>
-                    <artifactId>junit</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+           <groupId>com.fasterxml.jackson.core</groupId>
+           <artifactId>jackson-databind</artifactId>
+           <version>${dependency.jackson.version}</version>
+        </dependency>    
     </dependencies>
 </project>

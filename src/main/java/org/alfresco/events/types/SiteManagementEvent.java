@@ -10,7 +10,7 @@ package org.alfresco.events.types;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.json.simple.JSONObject;
+import org.alfresco.repo.events.JsonUtil;
 
 /**
  * An event that occurs when managing an Alfresco Site, e.g Site creation
@@ -101,15 +101,15 @@ public class SiteManagementEvent extends RepositoryEventImpl implements SiteEven
         return builder.toString();
     }
 
-	@Override
-	public String getDataAsJson() {
-		Map<String,String> data = new HashMap<>();
-		data.put("siteId", siteId);
-		data.put("title", title);		
-		data.put("visibility", visibility);
-		data.put("sitePreset", sitePreset);
+    @Override
+    public String getDataAsJson()
+    {
+        Map<String, String> data = new HashMap<>();
+        data.put("siteId", siteId);
+        data.put("title", title);
+        data.put("visibility", visibility);
+        data.put("sitePreset", sitePreset);
 
-		JSONObject json = new JSONObject(data);
-		return json.toJSONString();
-	}
+        return JsonUtil.writeData(data);
+    }
 }
