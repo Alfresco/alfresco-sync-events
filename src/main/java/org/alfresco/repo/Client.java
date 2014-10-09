@@ -12,6 +12,7 @@ package org.alfresco.repo;
  * It has additional clients beyond those originally available in FileFilterMode.Client.
  *
  * @author Gethin James
+ * @author sglover
  */
 public class Client
 {
@@ -26,7 +27,7 @@ public class Client
     }
 
     private ClientType type;
-    private String clientId;
+    private String clientId; // alfrescoClientId, used by device sync to identify a specific client
     
     public Client(ClientType type, String clientId)
     {
