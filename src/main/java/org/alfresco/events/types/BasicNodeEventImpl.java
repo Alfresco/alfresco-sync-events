@@ -103,4 +103,46 @@ public class BasicNodeEventImpl extends RepositoryEventImpl implements BasicNode
     {
         this.nodeType = nodeType;
     }
+
+    @Override
+    public int hashCode()
+    {
+        final int prime = 31;
+        int result = super.hashCode();
+        result = prime * result + ((this.name == null) ? 0 : this.name.hashCode());
+        result = prime * result + ((this.nodeId == null) ? 0 : this.nodeId.hashCode());
+        result = prime * result + ((this.nodeType == null) ? 0 : this.nodeType.hashCode());
+        result = prime * result + ((this.siteId == null) ? 0 : this.siteId.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (this == obj) return true;
+        if (!super.equals(obj)) return false;
+        if (getClass() != obj.getClass()) return false;
+        BasicNodeEventImpl other = (BasicNodeEventImpl) obj;
+        if (this.name == null)
+        {
+            if (other.name != null) return false;
+        }
+        else if (!this.name.equals(other.name)) return false;
+        if (this.nodeId == null)
+        {
+            if (other.nodeId != null) return false;
+        }
+        else if (!this.nodeId.equals(other.nodeId)) return false;
+        if (this.nodeType == null)
+        {
+            if (other.nodeType != null) return false;
+        }
+        else if (!this.nodeType.equals(other.nodeType)) return false;
+        if (this.siteId == null)
+        {
+            if (other.siteId != null) return false;
+        }
+        else if (!this.siteId.equals(other.siteId)) return false;
+        return true;
+    }
 }

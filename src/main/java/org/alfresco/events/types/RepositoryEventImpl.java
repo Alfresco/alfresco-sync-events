@@ -80,4 +80,40 @@ public class RepositoryEventImpl extends EventImpl implements RepositoryEvent, S
         return builder.toString();
     }
 
+    @Override
+    public int hashCode()
+    {
+        final int prime = 31;
+        int result = super.hashCode();
+        result = prime * result + ((this.client == null) ? 0 : this.client.hashCode());
+        result = prime * result + ((this.networkId == null) ? 0 : this.networkId.hashCode());
+        result = prime * result + ((this.txnId == null) ? 0 : this.txnId.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (this == obj) return true;
+        if (!super.equals(obj)) return false;
+        if (getClass() != obj.getClass()) return false;
+        RepositoryEventImpl other = (RepositoryEventImpl) obj;
+        if (this.client == null)
+        {
+            if (other.client != null) return false;
+        }
+        else if (!this.client.equals(other.client)) return false;
+        if (this.networkId == null)
+        {
+            if (other.networkId != null) return false;
+        }
+        else if (!this.networkId.equals(other.networkId)) return false;
+        if (this.txnId == null)
+        {
+            if (other.txnId != null) return false;
+        }
+        else if (!this.txnId.equals(other.txnId)) return false;
+        return true;
+    }
+
 }

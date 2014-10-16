@@ -12,6 +12,8 @@ import java.util.Map;
 
 import org.alfresco.repo.events.JsonUtil;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * An event that occurs when managing an Alfresco User
  * 
@@ -53,7 +55,23 @@ public class UserManagementEvent extends RepositoryEventImpl implements DataItem
         return builder.toString();
     }
 
+    public String getManagedUsername()
+    {
+        return this.managedUsername;
+    }
+
+    public String getManagedForename()
+    {
+        return this.managedForename;
+    }
+
+    public String getManagedSurname()
+    {
+        return this.managedSurname;
+    }
+    
     @Override
+    @JsonIgnore
     public String getDataAsJson()
     {
         Map<String, String> data = new HashMap<>();
@@ -63,4 +81,44 @@ public class UserManagementEvent extends RepositoryEventImpl implements DataItem
 
         return JsonUtil.writeData(data);
     }
+
+    @Override
+    public int hashCode()
+    {
+        final int prime = 31;
+        int result = super.hashCode();
+        result = prime * result
+                    + ((this.managedForename == null) ? 0 : this.managedForename.hashCode());
+        result = prime * result
+                    + ((this.managedSurname == null) ? 0 : this.managedSurname.hashCode());
+        result = prime * result
+                    + ((this.managedUsername == null) ? 0 : this.managedUsername.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (this == obj) return true;
+        if (!super.equals(obj)) return false;
+        if (getClass() != obj.getClass()) return false;
+        UserManagementEvent other = (UserManagementEvent) obj;
+        if (this.managedForename == null)
+        {
+            if (other.managedForename != null) return false;
+        }
+        else if (!this.managedForename.equals(other.managedForename)) return false;
+        if (this.managedSurname == null)
+        {
+            if (other.managedSurname != null) return false;
+        }
+        else if (!this.managedSurname.equals(other.managedSurname)) return false;
+        if (this.managedUsername == null)
+        {
+            if (other.managedUsername != null) return false;
+        }
+        else if (!this.managedUsername.equals(other.managedUsername)) return false;
+        return true;
+    }
+
 }

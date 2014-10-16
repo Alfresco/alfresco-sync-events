@@ -12,6 +12,8 @@ import java.util.Map;
 
 import org.alfresco.repo.events.JsonUtil;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * An event that occurs when managing an Alfresco Site, e.g Site creation
  * 
@@ -102,6 +104,7 @@ public class SiteManagementEvent extends RepositoryEventImpl implements SiteEven
     }
 
     @Override
+    @JsonIgnore
     public String getDataAsJson()
     {
         Map<String, String> data = new HashMap<>();
@@ -111,5 +114,53 @@ public class SiteManagementEvent extends RepositoryEventImpl implements SiteEven
         data.put("sitePreset", sitePreset);
 
         return JsonUtil.writeData(data);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        final int prime = 31;
+        int result = super.hashCode();
+        result = prime * result + ((this.description == null) ? 0 : this.description.hashCode());
+        result = prime * result + ((this.siteId == null) ? 0 : this.siteId.hashCode());
+        result = prime * result + ((this.sitePreset == null) ? 0 : this.sitePreset.hashCode());
+        result = prime * result + ((this.title == null) ? 0 : this.title.hashCode());
+        result = prime * result + ((this.visibility == null) ? 0 : this.visibility.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (this == obj) return true;
+        if (!super.equals(obj)) return false;
+        if (getClass() != obj.getClass()) return false;
+        SiteManagementEvent other = (SiteManagementEvent) obj;
+        if (this.description == null)
+        {
+            if (other.description != null) return false;
+        }
+        else if (!this.description.equals(other.description)) return false;
+        if (this.siteId == null)
+        {
+            if (other.siteId != null) return false;
+        }
+        else if (!this.siteId.equals(other.siteId)) return false;
+        if (this.sitePreset == null)
+        {
+            if (other.sitePreset != null) return false;
+        }
+        else if (!this.sitePreset.equals(other.sitePreset)) return false;
+        if (this.title == null)
+        {
+            if (other.title != null) return false;
+        }
+        else if (!this.title.equals(other.title)) return false;
+        if (this.visibility == null)
+        {
+            if (other.visibility != null) return false;
+        }
+        else if (!this.visibility.equals(other.visibility)) return false;
+        return true;
     }
 }

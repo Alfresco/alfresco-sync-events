@@ -154,4 +154,64 @@ public class BrowserEvent extends EventImpl implements ClientEvent, SiteEvent
         return builder.toString();
     }
 
+    @Override
+    public int hashCode()
+    {
+        final int prime = 31;
+        int result = super.hashCode();
+        result = prime * result + ((this.action == null) ? 0 : this.action.hashCode());
+        result = prime * result + ((this.agent == null) ? 0 : this.agent.hashCode());
+        result = prime * result + ((this.attributes == null) ? 0 : this.attributes.hashCode());
+        result = prime * result + ((this.component == null) ? 0 : this.component.hashCode());
+        result = prime * result + ((this.networkId == null) ? 0 : this.networkId.hashCode());
+        result = prime * result + ((this.siteId == null) ? 0 : this.siteId.hashCode());
+        result = prime * result + ((this.txnId == null) ? 0 : this.txnId.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (this == obj) return true;
+        if (!super.equals(obj)) return false;
+        if (getClass() != obj.getClass()) return false;
+        BrowserEvent other = (BrowserEvent) obj;
+        if (this.action == null)
+        {
+            if (other.action != null) return false;
+        }
+        else if (!this.action.equals(other.action)) return false;
+        if (this.agent == null)
+        {
+            if (other.agent != null) return false;
+        }
+        else if (!this.agent.equals(other.agent)) return false;
+        if (this.attributes == null)
+        {
+            if (other.attributes != null) return false;
+        }
+        else if (!this.attributes.equals(other.attributes)) return false;
+        if (this.component == null)
+        {
+            if (other.component != null) return false;
+        }
+        else if (!this.component.equals(other.component)) return false;
+        if (this.networkId == null)
+        {
+            if (other.networkId != null) return false;
+        }
+        else if (!this.networkId.equals(other.networkId)) return false;
+        if (this.siteId == null)
+        {
+            if (other.siteId != null) return false;
+        }
+        else if (!this.siteId.equals(other.siteId)) return false;
+        if (this.txnId == null)
+        {
+            if (other.txnId != null) return false;
+        }
+        else if (!this.txnId.equals(other.txnId)) return false;
+        return true;
+    }
+
 }

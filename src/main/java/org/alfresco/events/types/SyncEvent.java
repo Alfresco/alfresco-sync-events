@@ -83,4 +83,41 @@ public class SyncEvent extends ContentEventImpl implements ContentEvent
                     .append("]");
         return builder.toString();
     }
+
+    @Override
+    public int hashCode()
+    {
+        final int prime = 31;
+        int result = super.hashCode();
+        result = prime * result
+                    + ((this.remoteNetwork == null) ? 0 : this.remoteNetwork.hashCode());
+        result = prime * result + ((this.remoteNodeId == null) ? 0 : this.remoteNodeId.hashCode());
+        result = prime * result + ((this.syncSetGUID == null) ? 0 : this.syncSetGUID.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (this == obj) return true;
+        if (!super.equals(obj)) return false;
+        if (getClass() != obj.getClass()) return false;
+        SyncEvent other = (SyncEvent) obj;
+        if (this.remoteNetwork == null)
+        {
+            if (other.remoteNetwork != null) return false;
+        }
+        else if (!this.remoteNetwork.equals(other.remoteNetwork)) return false;
+        if (this.remoteNodeId == null)
+        {
+            if (other.remoteNodeId != null) return false;
+        }
+        else if (!this.remoteNodeId.equals(other.remoteNodeId)) return false;
+        if (this.syncSetGUID == null)
+        {
+            if (other.syncSetGUID != null) return false;
+        }
+        else if (!this.syncSetGUID.equals(other.syncSetGUID)) return false;
+        return true;
+    }
 }

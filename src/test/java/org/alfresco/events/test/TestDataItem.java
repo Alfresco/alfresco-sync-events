@@ -11,6 +11,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,10 +20,19 @@ import java.util.Map;
 
 import org.alfresco.events.activiti.PackageVariableEvent;
 import org.alfresco.events.types.DataItem;
+import org.alfresco.events.types.Event;
+import org.alfresco.events.types.SiteManagementEvent;
+import org.alfresco.events.types.UserManagementEvent;
 import org.alfresco.repo.events.JsonUtil;
+import org.gytheio.messaging.jackson.ObjectMapperFactory;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * Tests DataItem serialization
@@ -30,6 +41,8 @@ import org.junit.Test;
  */
 public class TestDataItem {
 
+    ObjectMapper messagingObjectMapper = ObjectMapperFactory.createInstance();
+    
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -47,6 +60,37 @@ public class TestDataItem {
         assertEquals ("barbie",items.get("managedUsername"));
         assertEquals ("Barbie",items.get("managedForename"));
         assertEquals ("Doll",items.get("managedSurname"));      
+    }
+    
+    @Test
+    public void testDataItemRoundTrip() throws IOException {
+        UserManagementEvent uEvent = EventFactory.createUserEvent("user.update", "userna", "barbie", "Barbie", "Doll");
+        UserManagementEvent res = (UserManagementEvent) serializeAndDeserialEvent(uEvent);
+        assertEquals(uEvent, res);
+        Map<String,String> items = (Map<String, String>) JsonUtil.readData(res.getDataAsJson());
+        assertNotNull(items);
+        assertEquals ("barbie",items.get("managedUsername"));
+        assertEquals ("Barbie",items.get("managedForename"));
+        assertEquals ("Doll",items.get("managedSurname"));        
+        
+        SiteManagementEvent sEvent = (SiteManagementEvent) EventFactory.createSiteEvent("site.create", "userna", "nice site");
+        SiteManagementEvent result =  (SiteManagementEvent) serializeAndDeserialEvent(sEvent);
+        assertEquals(sEvent, result);      
+        items = (Map<String, String>) JsonUtil.readData(result.getDataAsJson());
+        assertNotNull(items);
+        assertEquals ("nice site",items.get("siteId"));
+        assertEquals ("PUBLIC",items.get("visibility"));
+    }
+    
+    protected Event serializeAndDeserialEvent(Event event) throws IOException,
+                JsonGenerationException, JsonMappingException, JsonParseException
+    {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        messagingObjectMapper.writeValue(out, event);
+
+        Object b = messagingObjectMapper.readValue(out.toString(), Object.class);
+        assertTrue(b instanceof Event);
+        return (Event) b;
     }
 
     @Test

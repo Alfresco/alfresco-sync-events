@@ -97,4 +97,36 @@ public class ContentEventImpl extends BasicNodeEventImpl implements ContentEvent
                .append(this.size).append(", encoding=").append(this.encoding).append("]");
         return builder.toString();
     }
+
+    @Override
+    public int hashCode()
+    {
+        final int prime = 31;
+        int result = super.hashCode();
+        result = prime * result + ((this.encoding == null) ? 0 : this.encoding.hashCode());
+        result = prime * result + ((this.mimeType == null) ? 0 : this.mimeType.hashCode());
+        result = prime * result + (int) (this.size ^ (this.size >>> 32));
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (this == obj) return true;
+        if (!super.equals(obj)) return false;
+        if (getClass() != obj.getClass()) return false;
+        ContentEventImpl other = (ContentEventImpl) obj;
+        if (this.encoding == null)
+        {
+            if (other.encoding != null) return false;
+        }
+        else if (!this.encoding.equals(other.encoding)) return false;
+        if (this.mimeType == null)
+        {
+            if (other.mimeType != null) return false;
+        }
+        else if (!this.mimeType.equals(other.mimeType)) return false;
+        if (this.size != other.size) return false;
+        return true;
+    }
 }
