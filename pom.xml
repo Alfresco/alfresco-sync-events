@@ -20,8 +20,8 @@
     </properties>
     
     <scm>
-        <connection>https://svn.alfresco.com/repos/alfresco-enterprise/services/alfresco-components/alfresco-repo-dependencies/alfresco-events/trunk</connection>
-        <developerConnection>https://svn.alfresco.com/repos/alfresco-enterprise/services/alfresco-components/alfresco-repo-dependencies/alfresco-events/trunk</developerConnection>
+        <connection>scm:svn:https://svn.alfresco.com/repos/alfresco-enterprise/services/alfresco-components/alfresco-repo-dependencies/alfresco-events/trunk</connection>
+        <developerConnection>scm:svn:https://svn.alfresco.com/repos/alfresco-enterprise/services/alfresco-components/alfresco-repo-dependencies/alfresco-events/trunk</developerConnection>
     </scm>
 
     <dependencies>
