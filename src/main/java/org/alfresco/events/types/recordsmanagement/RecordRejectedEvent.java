@@ -24,7 +24,7 @@ public class RecordRejectedEvent extends NodeEvent
 {   
     private static final long serialVersionUID = 6797117452438369729L;
     
-    public static final String EVENT_TYPE = "RECORDCREATED";
+    public static final String EVENT_TYPE = "RECORDREJECTED";
 
     private RecordRejectedEvent(long seqNumber, String name, String txnId, long timestamp, String networkId, String siteId,
             String nodeId, String nodeType, List<String> paths, List<List<String>> parentNodeIds, String username, Long nodeModificationTime,
