@@ -11,7 +11,7 @@
 
     <name>Alfresco Events</name>
     <artifactId>alfresco-events</artifactId>
-    <version>1.2.8-SNAPSHOT</version>
+    <version>1.2.8</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -19,8 +19,8 @@
     </properties>
     
     <scm>
-        <connection>scm:svn:https://svn.alfresco.com/repos/alfresco-enterprise/services/alfresco-components/alfresco-repo-dependencies/alfresco-events/trunk</connection>
-        <developerConnection>scm:svn:https://svn.alfresco.com/repos/alfresco-enterprise/services/alfresco-components/alfresco-repo-dependencies/alfresco-events/trunk</developerConnection>
+        <connection>scm:svn:https://svn.alfresco.com/repos/alfresco-enterprise/services/alfresco-components/alfresco-repo-dependencies/alfresco-events/tags/1.2.8</connection>
+        <developerConnection>scm:svn:https://svn.alfresco.com/repos/alfresco-enterprise/services/alfresco-components/alfresco-repo-dependencies/alfresco-events/tags/1.2.8</developerConnection>
     </scm>
 
     <dependencies>
