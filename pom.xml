@@ -17,10 +17,11 @@
     <properties>
         <dependency.jackson.version>2.3.2</dependency.jackson.version>
     </properties>
-    
+
     <scm>
-        <connection>scm:svn:https://svn.alfresco.com/repos/alfresco-enterprise/services/alfresco-components/alfresco-repo-dependencies/alfresco-events/trunk</connection>
-        <developerConnection>scm:svn:https://svn.alfresco.com/repos/alfresco-enterprise/services/alfresco-components/alfresco-repo-dependencies/alfresco-events/trunk</developerConnection>
+        <connection>scm:git:https://git.alfresco.com/alfresco-services/components/repo-dependencies/alfresco-events.git</connection>
+        <developerConnection>scm:git:https://git.alfresco.com/alfresco-services/components/repo-dependencies/alfresco-events.git</developerConnection>
+        <url>https://git.alfresco.com/alfresco-services/components/repo-dependencies/alfresco-events</url>
     </scm>
 
     <dependencies>

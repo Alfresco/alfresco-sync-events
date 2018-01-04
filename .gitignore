@@ -1,0 +1,23 @@
+# Maven files
+target/
+ 
+# Maven Dev Env
+*.log*
+ 
+# Eclipse
+.project
+.classpath
+.settings/
+ 
+# IntelliJ
+.idea
+*.iml
+*.ipr
+ 
+# Other
+bin/
+.DS_Store
+*.class
+*.jar
+*.war
+*.ear
