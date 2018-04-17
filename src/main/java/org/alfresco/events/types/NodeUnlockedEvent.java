@@ -1,0 +1,44 @@
+/*
+ * Copyright 2018 Alfresco Software, Ltd.  All rights reserved.
+ *
+ * License rights for this program may be obtained from Alfresco Software, Ltd.
+ * pursuant to a written agreement and any use of this program without such an
+ * agreement is prohibited.
+ */
+package org.alfresco.events.types;
+
+import org.alfresco.repo.Client;
+
+import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+public class NodeUnlockedEvent extends NodeEvent
+{
+    private static final long serialVersionUID = -3138775019323549226L;
+
+    public static final String EVENT_TYPE = "NODEUNLOCKED";
+
+    NodeUnlockedEvent()
+    {
+    }
+
+    public NodeUnlockedEvent(long seqNumber, String name, String txnId, long time, String networkId, String siteId, String nodeId,
+            String nodeType, List<String> paths, List<List<String>> pathNodeIds, String userId, Long modificationTime,
+            Client client, Set<String> aspects, Map<String, Serializable> properties)
+    {
+        super(seqNumber, name, EVENT_TYPE, txnId, time, networkId, siteId, nodeId, nodeType, paths, pathNodeIds,
+                userId, modificationTime, client, aspects, properties);
+    }
+
+    @Override
+    public String toString()
+    {
+        return "NodeUnlockedEvent [nodeModificationTime=" + nodeModificationTime
+                + ", nodeId=" + nodeId + ", siteId=" + siteId + ", username="
+                + username + ", networkId=" + networkId + ", paths=" + paths
+                + ", nodeType=" + nodeType + ", id=" + id + ", type=" + type
+                + ", txnId=" + txnId + ", timestamp=" + timestamp + "]";
+    }
+}
