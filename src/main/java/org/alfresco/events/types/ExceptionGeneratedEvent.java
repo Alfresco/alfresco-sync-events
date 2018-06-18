@@ -33,39 +33,39 @@ package org.alfresco.events.types;
  */
 public class ExceptionGeneratedEvent extends RepositoryEventImpl implements TransactionOrderingAware
 {
-	private static final long serialVersionUID = -7936576493028335953L;
+    private static final long serialVersionUID = -7936576493028335953L;
 
-	public static final String EVENT_TYPE = "EXCEPTIONGENERATED";
-	// Seq number relative to the transaction in which the event occurs
-	protected Long seqNumber;
-	private Throwable cause;
+    public static final String EVENT_TYPE = "EXCEPTIONGENERATED";
+    // Seq number relative to the transaction in which the event occurs
+    protected Long seqNumber;
+    private Throwable cause;
 
-	public ExceptionGeneratedEvent()
-	{
-	}
+    public ExceptionGeneratedEvent()
+    {
+    }
 
-	public ExceptionGeneratedEvent(long seqNumber, String txnId, long time, String networkId, Throwable cause, String username)
-	{
-		super(seqNumber, EVENT_TYPE, txnId, networkId, time, username, null);
+    public ExceptionGeneratedEvent(long seqNumber, String txnId, long time, String networkId, Throwable cause, String username)
+    {
+        super(seqNumber, EVENT_TYPE, txnId, networkId, time, username, null);
         this.seqNumber = seqNumber;
-		this.cause = cause;
-	}
+        this.cause = cause;
+    }
 
-	public Throwable getCause() {
-		return cause;
-	}
+    public Throwable getCause() {
+        return cause;
+    }
 
-	public void setCause(Throwable cause)
-	{
-		this.cause = cause;
-	}
+    public void setCause(Throwable cause)
+    {
+        this.cause = cause;
+    }
 
-	@Override
-	public String toString()
-	{
-		return "ExceptionGeneratedEvent [cause=" + cause + ", type=" + type + ", txnId=" + txnId + ", timestamp=" + timestamp
-				+ "]";
-	}
+    @Override
+    public String toString()
+    {
+        return "ExceptionGeneratedEvent [cause=" + cause + ", type=" + type + ", txnId=" + txnId + ", timestamp=" + timestamp
+                + "]";
+    }
 
 
 }

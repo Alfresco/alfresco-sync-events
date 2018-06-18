@@ -83,10 +83,10 @@ public class RepositoryEventImpl extends EventImpl implements RepositoryEvent, S
 
     public void setClient(Client client) 
     {
-		this.client = client;
-	}
+        this.client = client;
+    }
 
-	@Override
+    @Override
     public String toString()
     {
         StringBuilder builder = new StringBuilder();

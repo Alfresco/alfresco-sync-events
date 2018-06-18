@@ -43,23 +43,23 @@ import org.alfresco.repo.Client;
  */
 public class NodeEvent extends BasicNodeEventImpl implements Serializable, NodeInfoEvent
 {
-	private static final long serialVersionUID = 1632258418479600707L;
+    private static final long serialVersionUID = 1632258418479600707L;
 
-	protected Long nodeModificationTime;
-	protected List<String> paths; // all paths, first one is the primary
-	protected List<List<String>> parentNodeIds; // all paths, first one is the primary
-	protected Set<String> aspects;
-	protected Map<String, Serializable> nodeProperties = new HashMap<String, Serializable>();
+    protected Long nodeModificationTime;
+    protected List<String> paths; // all paths, first one is the primary
+    protected List<List<String>> parentNodeIds; // all paths, first one is the primary
+    protected Set<String> aspects;
+    protected Map<String, Serializable> nodeProperties = new HashMap<String, Serializable>();
 
     // TODO checksum?
-	// TODO changeId?
+    // TODO changeId?
 
-	public NodeEvent()
-	{
-	}
+    public NodeEvent()
+    {
+    }
 
-	@SuppressWarnings("unchecked")
-	public NodeEvent(long seqNumber, String name, String type, String txnId, long timestamp, String networkId, String siteId, 
+    @SuppressWarnings("unchecked")
+    public NodeEvent(long seqNumber, String name, String type, String txnId, long timestamp, String networkId, String siteId,
                    String nodeId, String nodeType, List<String> paths, List<List<String>> parentNodeIds, String username,
                    Long nodeModificationTime, Client client, Set<String> aspects, Map<String, Serializable> nodeProperties)
     {
@@ -71,66 +71,66 @@ public class NodeEvent extends BasicNodeEventImpl implements Serializable, NodeI
          this.nodeProperties =  (Map<String, Serializable>)(nodeProperties==null?new HashMap<>():nodeProperties);
    }
 
-	public Set<String> getAspects()
-	{
-		return aspects;
-	}
+    public Set<String> getAspects()
+    {
+        return aspects;
+    }
 
-	public void setAspects(Set<String> aspects)
-	{
-		this.aspects = aspects;
-	}
+    public void setAspects(Set<String> aspects)
+    {
+        this.aspects = aspects;
+    }
 
-	public Map<String, Serializable> getNodeProperties()
-	{
-		return nodeProperties;
-	}
+    public Map<String, Serializable> getNodeProperties()
+    {
+        return nodeProperties;
+    }
 
-	public void setNodeProperties(Map<String, Serializable> nodeProperties)
-	{
-		this.nodeProperties = nodeProperties;
-	}
+    public void setNodeProperties(Map<String, Serializable> nodeProperties)
+    {
+        this.nodeProperties = nodeProperties;
+    }
 
     public Long getNodeModificationTime()
-	{
-		return nodeModificationTime;
-	}
+    {
+        return nodeModificationTime;
+    }
 
-	public void setNodeModificationTime(Long nodeModificationTime)
-	{
-		this.nodeModificationTime = nodeModificationTime;
-	}
+    public void setNodeModificationTime(Long nodeModificationTime)
+    {
+        this.nodeModificationTime = nodeModificationTime;
+    }
 
-	/*
+    /*
      * @see org.alfresco.events.types.NodeInfoEvent#getPaths()
      */
-	@Override
+    @Override
     public List<String> getPaths()
-	{
-		return paths;
-	}
+    {
+        return paths;
+    }
 
-	public void setPaths(List<String> paths)
-	{
-		this.paths = paths;
-	}
+    public void setPaths(List<String> paths)
+    {
+        this.paths = paths;
+    }
 
-	public void setNetworkId(String networkId)
-	{
-		this.networkId = networkId;
-	}
+    public void setNetworkId(String networkId)
+    {
+        this.networkId = networkId;
+    }
 
-	public String getNetworkId()
-	{
-		return networkId;
-	}
-	
-	/*
+    public String getNetworkId()
+    {
+        return networkId;
+    }
+
+    /*
      * @see org.alfresco.events.types.NodeInfoEvent#getParentNodeIds()
      */
-	@Override
+    @Override
     public List<List<String>> getParentNodeIds()
-	{
+    {
         return parentNodeIds;
     }
 

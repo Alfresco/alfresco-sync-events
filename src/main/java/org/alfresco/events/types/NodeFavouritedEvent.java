@@ -40,19 +40,19 @@ import org.alfresco.repo.Client;
  */
 public class NodeFavouritedEvent extends NodeEvent
 {
-	private static final long serialVersionUID = 5425423898822770070L;
+    private static final long serialVersionUID = 5425423898822770070L;
 
-	public static final String EVENT_TYPE = "NODEFAVOURITED";
+    public static final String EVENT_TYPE = "NODEFAVOURITED";
 
-	public NodeFavouritedEvent()
-	{
-	}
+    public NodeFavouritedEvent()
+    {
+    }
 
-	public NodeFavouritedEvent(long seqNumber, String name, String txnId, long time, String networkId, String siteId,
-			String nodeId, String nodeType, List<String> paths, List<List<String>> pathNodeIds, String userId,
-			Long modificationTime, Client client, Set<String> aspects, Map<String, Serializable> properties)
-	{
-		super(seqNumber, name, EVENT_TYPE, txnId, time, networkId, siteId, nodeId, nodeType, paths, pathNodeIds, userId,
-				modificationTime, client, aspects, properties);
-	}
+    public NodeFavouritedEvent(long seqNumber, String name, String txnId, long time, String networkId, String siteId,
+            String nodeId, String nodeType, List<String> paths, List<List<String>> pathNodeIds, String userId,
+            Long modificationTime, Client client, Set<String> aspects, Map<String, Serializable> properties)
+    {
+        super(seqNumber, name, EVENT_TYPE, txnId, time, networkId, siteId, nodeId, nodeType, paths, pathNodeIds, userId,
+                modificationTime, client, aspects, properties);
+    }
 }

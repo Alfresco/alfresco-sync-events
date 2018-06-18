@@ -40,30 +40,30 @@ import org.alfresco.repo.Client;
  */
 public class NodeContentGetEvent extends NodeEvent
 {
-	private static final long serialVersionUID = 8034413766818328844L;
+    private static final long serialVersionUID = 8034413766818328844L;
 
-	public static final String EVENT_TYPE = "CONTENTGET";
+    public static final String EVENT_TYPE = "CONTENTGET";
 
-	public NodeContentGetEvent()
-	{
-	}
-	
-	public NodeContentGetEvent(long seqNumber, String name, String txnId, long time, String networkId, String siteId,
-			String nodeId, String nodeType, List<String> paths, List<List<String>> pathNodeIds, String userId,
-			Long modificationTime, Client client, Set<String> aspects, Map<String, Serializable> properties)
-	{
-		super(seqNumber, name, EVENT_TYPE, txnId, time, networkId, siteId, nodeId, nodeType, paths, pathNodeIds,
-		        userId, modificationTime, client, aspects, properties);
-	}
+    public NodeContentGetEvent()
+    {
+    }
 
-	@Override
-	public String toString()
-	{
-		return "NodeContentGetEvent [nodeModificationTime="
-				+ nodeModificationTime + ", nodeId=" + nodeId + ", siteId="
-				+ siteId + ", username=" + username + ", networkId=" + networkId
-				+ ", paths=" + paths + ", nodeType=" + nodeType + ", id=" + id
-				+ ", type=" + type + ", txnId=" + txnId + ", timestamp="
-				+ timestamp + "]";
-	}
+    public NodeContentGetEvent(long seqNumber, String name, String txnId, long time, String networkId, String siteId,
+            String nodeId, String nodeType, List<String> paths, List<List<String>> pathNodeIds, String userId,
+            Long modificationTime, Client client, Set<String> aspects, Map<String, Serializable> properties)
+    {
+        super(seqNumber, name, EVENT_TYPE, txnId, time, networkId, siteId, nodeId, nodeType, paths, pathNodeIds,
+                userId, modificationTime, client, aspects, properties);
+    }
+
+    @Override
+    public String toString()
+    {
+        return "NodeContentGetEvent [nodeModificationTime="
+                + nodeModificationTime + ", nodeId=" + nodeId + ", siteId="
+                + siteId + ", username=" + username + ", networkId=" + networkId
+                + ", paths=" + paths + ", nodeType=" + nodeType + ", id=" + id
+                + ", type=" + type + ", txnId=" + txnId + ", timestamp="
+                + timestamp + "]";
+    }
 }

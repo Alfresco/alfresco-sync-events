@@ -50,41 +50,41 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  */
 public class TestEventSerializer {
 
-	ObjectMapper messagingObjectMapper = ObjectMapperFactory.createInstance();
+    ObjectMapper messagingObjectMapper = ObjectMapperFactory.createInstance();
     
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
+    @BeforeClass
+    public static void setUpBeforeClass() throws Exception {
+    }
 
-	@Before
-	public void setUp() throws Exception {
-	}
+    @Before
+    public void setUp() throws Exception {
+    }
 
-	@Test
-	public void testRoundTrip() throws IOException {
-		List<Event> events = EventFactory.createEvents("testsite1", "jsmith");
-		
-		for (Event event : events) {
-			serializeAndDeserialEvent(event);
-		}
-		
-		events = EventFactory.createActivitiEvents("my user");
-		
-		for (Event event : events) {
-			serializeAndDeserialEvent(event);
-		}
-		
-		serializeAndDeserialEvent(EventFactory.createNodeAddedEvent("node.add", "my user", "nodeId1", "testexsite"));
-	}
+    @Test
+    public void testRoundTrip() throws IOException {
+        List<Event> events = EventFactory.createEvents("testsite1", "jsmith");
 
-	protected void serializeAndDeserialEvent(Event event) throws IOException,
-			JsonGenerationException, JsonMappingException, JsonParseException {
-		ByteArrayOutputStream out = new ByteArrayOutputStream();
-		messagingObjectMapper.writeValue(out, event);
-		
-		Object b =  messagingObjectMapper.readValue(out.toString(), Object.class);
-		assertTrue(b instanceof Event);
-		assertEquals(b,event);
-	}
+        for (Event event : events) {
+            serializeAndDeserialEvent(event);
+        }
+
+        events = EventFactory.createActivitiEvents("my user");
+
+        for (Event event : events) {
+            serializeAndDeserialEvent(event);
+        }
+
+        serializeAndDeserialEvent(EventFactory.createNodeAddedEvent("node.add", "my user", "nodeId1", "testexsite"));
+    }
+
+    protected void serializeAndDeserialEvent(Event event) throws IOException,
+            JsonGenerationException, JsonMappingException, JsonParseException {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        messagingObjectMapper.writeValue(out, event);
+
+        Object b =  messagingObjectMapper.readValue(out.toString(), Object.class);
+        assertTrue(b instanceof Event);
+        assertEquals(b,event);
+    }
 
 }

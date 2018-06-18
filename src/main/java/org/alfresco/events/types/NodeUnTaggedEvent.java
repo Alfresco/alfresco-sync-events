@@ -40,34 +40,34 @@ import org.alfresco.repo.Client;
  */
 public class NodeUnTaggedEvent extends NodeEvent
 {
-	private static final long serialVersionUID = 4459034970051890418L;
+    private static final long serialVersionUID = 4459034970051890418L;
 
-	public static final String EVENT_TYPE = "NODETAGREMOVED";
+    public static final String EVENT_TYPE = "NODETAGREMOVED";
 
-	private String tag;
+    private String tag;
 
-	public NodeUnTaggedEvent()
-	{
-		super();
-	}
+    public NodeUnTaggedEvent()
+    {
+        super();
+    }
 
-	public NodeUnTaggedEvent(long seqNumber, String tag, String name, String txnId, long time, String networkId,
-			String siteId, String nodeId, String nodeType, List<String> paths, List<List<String>> pathNodeIds,
-			String userId, Long modificationTime,
-			Client client, Set<String> aspects, Map<String, Serializable> properties)
-	{
-		super(seqNumber, name, EVENT_TYPE, txnId, time, networkId, siteId, nodeId, nodeType, paths, pathNodeIds, userId,
-				modificationTime, client, aspects, properties);
-		this.tag = tag;
-	}
+    public NodeUnTaggedEvent(long seqNumber, String tag, String name, String txnId, long time, String networkId,
+            String siteId, String nodeId, String nodeType, List<String> paths, List<List<String>> pathNodeIds,
+            String userId, Long modificationTime,
+            Client client, Set<String> aspects, Map<String, Serializable> properties)
+    {
+        super(seqNumber, name, EVENT_TYPE, txnId, time, networkId, siteId, nodeId, nodeType, paths, pathNodeIds, userId,
+                modificationTime, client, aspects, properties);
+        this.tag = tag;
+    }
 
-	public String getTag()
-	{
-		return tag;
-	}
+    public String getTag()
+    {
+        return tag;
+    }
 
-	public void setTag(String tag)
-	{
-		this.tag = tag;
-	}
+    public void setTag(String tag)
+    {
+        this.tag = tag;
+    }
 }

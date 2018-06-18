@@ -48,7 +48,7 @@ public class BasicNodeEventImpl extends RepositoryEventImpl implements BasicNode
     }
 
     public BasicNodeEventImpl(long sequenceNumber, String type, String txnId, String networkId, long timestamp,
-    		String username, Client client)
+            String username, Client client)
     {
         super(sequenceNumber, type, txnId, networkId, timestamp, username, client);
     }

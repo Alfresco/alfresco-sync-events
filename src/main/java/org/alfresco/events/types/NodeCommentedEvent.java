@@ -40,32 +40,32 @@ import org.alfresco.repo.Client;
  */
 public class NodeCommentedEvent extends NodeEvent
 {
-	private static final long serialVersionUID = 8925467617685945150L;
+    private static final long serialVersionUID = 8925467617685945150L;
 
-	public static final String EVENT_TYPE = "NODECOMMENTED";
+    public static final String EVENT_TYPE = "NODECOMMENTED";
 
-	private String comment;
+    private String comment;
 
-	public NodeCommentedEvent()
-	{
-	}
+    public NodeCommentedEvent()
+    {
+    }
 
-	public NodeCommentedEvent(long seqNumber, String name, String txnId, long time, String networkId, String siteId,
-			String nodeId, String nodeType, List<String> paths, List<List<String>> pathNodeIds, String userId,
-			Long modificationTime, String comment, Client client, Set<String> aspects, Map<String, Serializable> properties)
-	{
-		super(seqNumber, name, EVENT_TYPE, txnId, time, networkId, siteId, nodeId, nodeType, paths, pathNodeIds,
-				userId, modificationTime, client, aspects, properties);
-		this.comment = comment;
-	}
+    public NodeCommentedEvent(long seqNumber, String name, String txnId, long time, String networkId, String siteId,
+            String nodeId, String nodeType, List<String> paths, List<List<String>> pathNodeIds, String userId,
+            Long modificationTime, String comment, Client client, Set<String> aspects, Map<String, Serializable> properties)
+    {
+        super(seqNumber, name, EVENT_TYPE, txnId, time, networkId, siteId, nodeId, nodeType, paths, pathNodeIds,
+                userId, modificationTime, client, aspects, properties);
+        this.comment = comment;
+    }
 
-	public String getComment()
-	{
-		return comment;
-	}
+    public String getComment()
+    {
+        return comment;
+    }
 
-	public void setComment(String comment)
-	{
-		this.comment = comment;
-	}
+    public void setComment(String comment)
+    {
+        this.comment = comment;
+    }
 }

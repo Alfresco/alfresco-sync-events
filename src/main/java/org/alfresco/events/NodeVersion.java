@@ -35,42 +35,42 @@ import java.util.Date;
  */
 public class NodeVersion
 {
-	private String versionedId;
-	private String versionId;
-	private Date modifiedAt;
-	private String modifiedBy;
-	private String versionLabel;
-	private VersionType versionType;
-	private String description;
-	private String siteId;
-	
+    private String versionedId;
+    private String versionId;
+    private Date modifiedAt;
+    private String modifiedBy;
+    private String versionLabel;
+    private VersionType versionType;
+    private String description;
+    private String siteId;
+
     public NodeVersion(String siteId, String versionedId, String versionId,
-			Date modifiedAt, String modifiedBy, String versionLabel,
-			VersionType versionType, String description)
-	{
-		super();
-		this.versionedId = versionedId;
-		this.versionId = versionId;
-		this.modifiedAt = modifiedAt;
-		this.modifiedBy = modifiedBy;
-		this.versionLabel = versionLabel;
-		this.versionType = versionType;
-		this.description = description;
-	}
-
-	public String getSiteId()
-	{
-		return siteId;
-	}
-
-	public Date getModifiedAt()
+            Date modifiedAt, String modifiedBy, String versionLabel,
+            VersionType versionType, String description)
     {
-    	return modifiedAt;
+        super();
+        this.versionedId = versionedId;
+        this.versionId = versionId;
+        this.modifiedAt = modifiedAt;
+        this.modifiedBy = modifiedBy;
+        this.versionLabel = versionLabel;
+        this.versionType = versionType;
+        this.description = description;
+    }
+
+    public String getSiteId()
+    {
+        return siteId;
+    }
+
+    public Date getModifiedAt()
+    {
+        return modifiedAt;
     }
     
     public String getModifiedBy()
     {
-    	return modifiedBy;
+        return modifiedBy;
     }
     
     public String getVersionLabel()

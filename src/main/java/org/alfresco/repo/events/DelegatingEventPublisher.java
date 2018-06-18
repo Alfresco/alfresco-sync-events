@@ -65,5 +65,5 @@ public class DelegatingEventPublisher implements EventPublisher {
     {
         this.delegate = null;
     }
-	
+
 }

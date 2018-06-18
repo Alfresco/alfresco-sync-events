@@ -35,7 +35,7 @@ import java.util.Set;
  */
 public interface EventRegistry
 {
-	boolean isEventTypeRegistered(String eventType);
-	void addEventType(String eventType);
-	Set<String> getEventTypes();
+    boolean isEventTypeRegistered(String eventType);
+    void addEventType(String eventType);
+    Set<String> getEventTypes();
 }

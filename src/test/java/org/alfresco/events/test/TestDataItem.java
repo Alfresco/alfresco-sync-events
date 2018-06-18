@@ -61,13 +61,13 @@ public class TestDataItem {
 
     ObjectMapper messagingObjectMapper = ObjectMapperFactory.createInstance();
     
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
+    @BeforeClass
+    public static void setUpBeforeClass() throws Exception {
+    }
 
-	@Before
-	public void setUp() throws Exception {
-	}
+    @Before
+    public void setUp() throws Exception {
+    }
 
     @Test
     public void testUser() {
@@ -137,17 +137,17 @@ public class TestDataItem {
         
     }
     
-	@Test
-	public void testSite() throws ParseException {
-		String siteId = "nice site";
-		DataItem item = (DataItem) EventFactory.createSiteEvent("site.create", "userna", "nice site");
+    @Test
+    public void testSite() throws ParseException {
+        String siteId = "nice site";
+        DataItem item = (DataItem) EventFactory.createSiteEvent("site.create", "userna", "nice site");
         Map<String,String> items = (Map<String, String>) JsonUtil.readData(item.getDataAsJson());
         assertNotNull(items);
-		assertTrue (items.containsKey("title"));
-		assertTrue (items.containsKey("siteId"));
-		assertTrue (items.containsKey("visibility"));
-		assertTrue (items.containsKey("sitePreset"));
-		assertEquals (siteId,items.get("siteId"));
-	}
+        assertTrue (items.containsKey("title"));
+        assertTrue (items.containsKey("siteId"));
+        assertTrue (items.containsKey("visibility"));
+        assertTrue (items.containsKey("sitePreset"));
+        assertEquals (siteId,items.get("siteId"));
+    }
 
 }

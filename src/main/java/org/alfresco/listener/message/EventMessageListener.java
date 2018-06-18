@@ -37,5 +37,5 @@ import org.alfresco.events.types.Event;
  */
 public interface EventMessageListener {
 
-	void onEvent(Event event);
+    void onEvent(Event event);
 }

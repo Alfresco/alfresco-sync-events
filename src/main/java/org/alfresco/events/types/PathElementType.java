@@ -32,5 +32,5 @@ package org.alfresco.events.types;
  */
 public enum PathElementType
 {
-	Attribute, ChildAssoc, Descendant, Parent, Self, Simple, SimplePath;
+    Attribute, ChildAssoc, Descendant, Parent, Self, Simple, SimplePath;
 }

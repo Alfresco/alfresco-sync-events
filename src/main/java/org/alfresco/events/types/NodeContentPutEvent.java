@@ -40,73 +40,73 @@ import org.alfresco.repo.Client;
  */
 public class NodeContentPutEvent extends NodeEvent implements ContentEvent
 {
-	private static final long serialVersionUID = -6657727955748547081L;
-	
-	public static final String EVENT_TYPE = "CONTENTPUT";
+    private static final long serialVersionUID = -6657727955748547081L;
 
-	public static final String FIELD_SIZE = "size";
-	public static final String FIELD_MIME_TYPE = "mimeType";
-	public static final String FIELD_ENCODING = "encoding";
+    public static final String EVENT_TYPE = "CONTENTPUT";
 
-	private long size;
-	private String mimeType;
-	private String encoding;
+    public static final String FIELD_SIZE = "size";
+    public static final String FIELD_MIME_TYPE = "mimeType";
+    public static final String FIELD_ENCODING = "encoding";
 
-	public NodeContentPutEvent()
-	{
-	}
-	
-	public NodeContentPutEvent(long seqNumber, String name, String txnId, long time, String networkId, String siteId, String nodeId,
-			String nodeType, List<String> paths, List<List<String>> pathNodeIds, String userId, Long modificationTime,
-			long size, String mimeType, String encoding, Client client, Set<String> aspects, Map<String, Serializable> properties)
-	{
-		super(seqNumber, name, EVENT_TYPE, txnId, time, networkId, siteId, nodeId, nodeType,
-				paths, pathNodeIds, userId, modificationTime, client, aspects, properties);
-		this.size = size;
-		this.mimeType = mimeType;
-		this.encoding = encoding;
-	}
+    private long size;
+    private String mimeType;
+    private String encoding;
 
-	public long getSize()
-	{
-		return size;
-	}
+    public NodeContentPutEvent()
+    {
+    }
 
-	public void setSize(long size)
-	{
-		this.size = size;
-	}
+    public NodeContentPutEvent(long seqNumber, String name, String txnId, long time, String networkId, String siteId, String nodeId,
+            String nodeType, List<String> paths, List<List<String>> pathNodeIds, String userId, Long modificationTime,
+            long size, String mimeType, String encoding, Client client, Set<String> aspects, Map<String, Serializable> properties)
+    {
+        super(seqNumber, name, EVENT_TYPE, txnId, time, networkId, siteId, nodeId, nodeType,
+                paths, pathNodeIds, userId, modificationTime, client, aspects, properties);
+        this.size = size;
+        this.mimeType = mimeType;
+        this.encoding = encoding;
+    }
 
-	public String getMimeType()
-	{
-		return mimeType;
-	}
+    public long getSize()
+    {
+        return size;
+    }
 
-	public void setMimeType(String mimeType)
-	{
-		this.mimeType = mimeType;
-	}
+    public void setSize(long size)
+    {
+        this.size = size;
+    }
 
-	public String getEncoding()
-	{
-		return encoding;
-	}
+    public String getMimeType()
+    {
+        return mimeType;
+    }
 
-	public void setEncoding(String encoding)
-	{
-		this.encoding = encoding;
-	}
+    public void setMimeType(String mimeType)
+    {
+        this.mimeType = mimeType;
+    }
 
-	@Override
-	public String toString()
-	{
-		return "NodeContentPutEvent [size=" + size + ", mimeType=" + mimeType
-				+ ", encoding=" + encoding + ", nodeModificationTime="
-				+ nodeModificationTime + ", nodeId=" + nodeId + ", siteId="
-				+ siteId + ", username=" + username + ", networkId=" + networkId
-				+ ", paths=" + paths + ", nodeType=" + nodeType + ", id=" + id
-				+ ", type=" + type + ", txnId=" + txnId + ", timestamp="
-				+ timestamp + "]";
-	}
-	
+    public String getEncoding()
+    {
+        return encoding;
+    }
+
+    public void setEncoding(String encoding)
+    {
+        this.encoding = encoding;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "NodeContentPutEvent [size=" + size + ", mimeType=" + mimeType
+                + ", encoding=" + encoding + ", nodeModificationTime="
+                + nodeModificationTime + ", nodeId=" + nodeId + ", siteId="
+                + siteId + ", username=" + username + ", networkId=" + networkId
+                + ", paths=" + paths + ", nodeType=" + nodeType + ", id=" + id
+                + ", type=" + type + ", txnId=" + txnId + ", timestamp="
+                + timestamp + "]";
+    }
+
 }

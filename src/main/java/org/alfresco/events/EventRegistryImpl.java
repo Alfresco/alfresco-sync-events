@@ -36,23 +36,23 @@ import java.util.Set;
  */
 public class EventRegistryImpl implements EventRegistry
 {
-	private Set<String> eventTypes = new HashSet<String>();
-	
-	@Override
-	public void addEventType(String eventType)
-	{
-		eventTypes.add(eventType);
-	}
-	
-	@Override
-	public Set<String> getEventTypes()
-	{
-		return eventTypes;
-	}
+    private Set<String> eventTypes = new HashSet<String>();
 
-	@Override
-	public boolean isEventTypeRegistered(String eventType)
-	{
-		return eventTypes.contains(eventType);
-	}
+    @Override
+    public void addEventType(String eventType)
+    {
+        eventTypes.add(eventType);
+    }
+
+    @Override
+    public Set<String> getEventTypes()
+    {
+        return eventTypes;
+    }
+
+    @Override
+    public boolean isEventTypeRegistered(String eventType)
+    {
+        return eventTypes.contains(eventType);
+    }
 }

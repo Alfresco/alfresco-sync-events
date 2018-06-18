@@ -40,32 +40,32 @@ import org.alfresco.repo.Client;
  */
 public class NodeCheckedInEvent extends NodeEvent
 {
-	private static final long serialVersionUID = -4171154321512563593L;
+    private static final long serialVersionUID = -4171154321512563593L;
 
-	public static final String EVENT_TYPE = "NODECHECKEDIN";
+    public static final String EVENT_TYPE = "NODECHECKEDIN";
 
-	public NodeCheckedInEvent()
-	{
-	}
+    public NodeCheckedInEvent()
+    {
+    }
 
-	public NodeCheckedInEvent(long seqNumber, String name, String txnId, long time, String networkId, String siteId, 
-			String nodeId, String nodeType, List<String> paths, List<List<String>> pathNodeIds, String userId,
-			Long modificationTime, Client client, Set<String> aspects, Map<String, Serializable> properties)
-	{
-		super(seqNumber, name, EVENT_TYPE, txnId, time, networkId, siteId, nodeId, nodeType, paths, pathNodeIds, userId,
-				modificationTime, client, aspects, properties);
-	}
+    public NodeCheckedInEvent(long seqNumber, String name, String txnId, long time, String networkId, String siteId,
+            String nodeId, String nodeType, List<String> paths, List<List<String>> pathNodeIds, String userId,
+            Long modificationTime, Client client, Set<String> aspects, Map<String, Serializable> properties)
+    {
+        super(seqNumber, name, EVENT_TYPE, txnId, time, networkId, siteId, nodeId, nodeType, paths, pathNodeIds, userId,
+                modificationTime, client, aspects, properties);
+    }
 
-	@Override
-	public String toString()
-	{
-		return "NodeCheckedInEvent [name=" + name + ", nodeModificationTime="
-				+ nodeModificationTime + ", nodeId=" + nodeId + ", siteId="
-				+ siteId + ", paths=" + paths + ", parentNodeIds="
-				+ parentNodeIds + ", nodeType=" + nodeType + ", client="
-				+ client + ", aspects=" + aspects + ", properties="
-				+ nodeProperties + ", txnId=" + txnId + ", networkId=" + networkId
-				+ ", id=" + id + ", type=" + type + ", username=" + username
-				+ ", timestamp=" + timestamp + "]";
-	}
+    @Override
+    public String toString()
+    {
+        return "NodeCheckedInEvent [name=" + name + ", nodeModificationTime="
+                + nodeModificationTime + ", nodeId=" + nodeId + ", siteId="
+                + siteId + ", paths=" + paths + ", parentNodeIds="
+                + parentNodeIds + ", nodeType=" + nodeType + ", client="
+                + client + ", aspects=" + aspects + ", properties="
+                + nodeProperties + ", txnId=" + txnId + ", networkId=" + networkId
+                + ", id=" + id + ", type=" + type + ", username=" + username
+                + ", timestamp=" + timestamp + "]";
+    }
 }

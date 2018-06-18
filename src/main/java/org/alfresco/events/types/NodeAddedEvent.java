@@ -40,30 +40,30 @@ import org.alfresco.repo.Client;
  */
 public class NodeAddedEvent extends NodeEvent
 {
-	private static final long serialVersionUID = -1850974872159620997L;
-	
-	public static final String EVENT_TYPE = "NODEADDED";
+    private static final long serialVersionUID = -1850974872159620997L;
 
-	public NodeAddedEvent()
-	{
-	}
-	
-	public NodeAddedEvent(long seqNumber, String name, String txnId, long time, String networkId, String siteId, String nodeId, String nodeType,
-			List<String> paths, List<List<String>> pathNodeIds, String userId, Long modificationTime, Client client,
-			Set<String> aspects, Map<String, Serializable> properties)
-	{
-		super(seqNumber, name, EVENT_TYPE, txnId, time, networkId, siteId, nodeId, nodeType, paths, pathNodeIds,
-				userId, modificationTime, client, aspects, properties);
-	}
+    public static final String EVENT_TYPE = "NODEADDED";
 
-	@Override
-	public String toString()
-	{
-		return "NodeAddedEvent [nodeModificationTime=" + nodeModificationTime
-				+ ", nodeId=" + nodeId + ", siteId=" + siteId + ", username="
-				+ username + ", networkId=" + networkId + ", paths=" + paths
-				+ ", nodeType=" + nodeType + ", id=" + id + ", type=" + type
-				+ ", txnId=" + txnId + ", timestamp=" + timestamp + "]";
-	}
+    public NodeAddedEvent()
+    {
+    }
+
+    public NodeAddedEvent(long seqNumber, String name, String txnId, long time, String networkId, String siteId, String nodeId, String nodeType,
+            List<String> paths, List<List<String>> pathNodeIds, String userId, Long modificationTime, Client client,
+            Set<String> aspects, Map<String, Serializable> properties)
+    {
+        super(seqNumber, name, EVENT_TYPE, txnId, time, networkId, siteId, nodeId, nodeType, paths, pathNodeIds,
+                userId, modificationTime, client, aspects, properties);
+    }
+
+    @Override
+    public String toString()
+    {
+        return "NodeAddedEvent [nodeModificationTime=" + nodeModificationTime
+                + ", nodeId=" + nodeId + ", siteId=" + siteId + ", username="
+                + username + ", networkId=" + networkId + ", paths=" + paths
+                + ", nodeType=" + nodeType + ", id=" + id + ", type=" + type
+                + ", txnId=" + txnId + ", timestamp=" + timestamp + "]";
+    }
 
 }

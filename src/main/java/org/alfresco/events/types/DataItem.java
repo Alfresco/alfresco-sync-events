@@ -35,5 +35,5 @@ package org.alfresco.events.types;
  */
 public interface DataItem {
 
-	String getDataAsJson();
+    String getDataAsJson();
 }

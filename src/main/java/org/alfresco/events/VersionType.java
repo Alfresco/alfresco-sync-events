@@ -33,5 +33,5 @@ package org.alfresco.events;
  */
 public enum VersionType
 {
-	MAJOR, MINOR;
+    MAJOR, MINOR;
 }
