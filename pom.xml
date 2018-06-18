@@ -10,14 +10,14 @@
 
     <name>Alfresco Repository Events</name>
     <artifactId>alfresco-repository-events</artifactId>
-    <version>1.2.13-SNAPSHOT</version>
+    <version>1.2.13</version>
     <packaging>jar</packaging>
 
     <scm>
         <connection>scm:git:git@github.com:Alfresco/alfresco-repository-events.git</connection>
         <developerConnection>scm:git:git@github.com:Alfresco/alfresco-repository-events.git</developerConnection>
         <url>https://github.com/Alfresco/alfresco-repository-events</url>
-        <tag>HEAD</tag>
+        <tag>alfresco-repository-events-1.2.13</tag>
     </scm>
 
     <distributionManagement>
