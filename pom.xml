@@ -3,33 +3,49 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.alfresco.services</groupId>
-        <artifactId>alfresco-repo-dependencies-parent</artifactId>
-        <version>1.2.12</version>
-        <relativePath />
+        <groupId>org.alfresco</groupId>
+        <artifactId>alfresco-super-pom</artifactId>
+        <version>9</version>
     </parent>
 
-    <name>Alfresco Events</name>
-    <artifactId>alfresco-events</artifactId>
+    <name>Alfresco Repository Events</name>
+    <artifactId>alfresco-repository-events</artifactId>
     <version>1.2.13-SNAPSHOT</version>
     <packaging>jar</packaging>
+
+    <scm>
+        <connection>scm:git:git@github.com:Alfresco/alfresco-repository-events.git</connection>
+        <developerConnection>scm:git:git@github.com:Alfresco/alfresco-repository-events.git</developerConnection>
+        <url>https://github.com/Alfresco/alfresco-repository-events</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>alfresco-internal</id>
+            <url>https://artifacts.alfresco.com/nexus/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>alfresco-internal-snapshots</id>
+            <url>https://artifacts.alfresco.com/nexus/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <properties>
         <dependency.jackson.version>2.9.5</dependency.jackson.version>
     </properties>
 
-    <scm>
-        <connection>scm:git:https://git.alfresco.com/alfresco-services/components/repo-dependencies/alfresco-events.git</connection>
-        <developerConnection>scm:git:https://git.alfresco.com/alfresco-services/components/repo-dependencies/alfresco-events.git</developerConnection>
-        <url>https://git.alfresco.com/alfresco-services/components/repo-dependencies/alfresco-events</url>
-      <tag>HEAD</tag>
-  </scm>
-
     <dependencies>
         <dependency>
             <groupId>org.gytheio</groupId>
             <artifactId>gytheio-messaging-commons</artifactId>
-            <version>${dependency.gytheio.version}</version>
+            <version>0.8</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -37,6 +53,6 @@
            <artifactId>jackson-databind</artifactId>
            <version>${dependency.jackson.version}</version>
            <scope>provided</scope>
-        </dependency>    
+        </dependency>
     </dependencies>
 </project>
