@@ -23,19 +23,17 @@
  * along with Alfresco. If not, see <http://www.gnu.org/licenses/>.
  * #L%
  */
-package org.alfresco.listener.message;
-
-import org.alfresco.sync.events.types.Event;
-
+package org.alfresco.sync.events.types;
 
 /**
- * Something that listens to Alfresco events.
- * Basic interface to implement when listening to Events.
- *
+ * An event that implements this interface indicates it has some unstructured
+ * data that it wants to make available to Event Listeners.
+ * 
+ * The primary use case is to record this data for use by an ETL job.
+ * 
  * @author Gethin James
- * @since 5.0
  */
-public interface EventMessageListener {
+public interface DataItem {
 
-    void onEvent(Event event);
+    String getDataAsJson();
 }

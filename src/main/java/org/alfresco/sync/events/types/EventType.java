@@ -23,19 +23,12 @@
  * along with Alfresco. If not, see <http://www.gnu.org/licenses/>.
  * #L%
  */
-package org.alfresco.listener.message;
+package org.alfresco.sync.events.types;
 
-import org.alfresco.sync.events.types.Event;
+import java.io.Serializable;
 
-
-/**
- * Something that listens to Alfresco events.
- * Basic interface to implement when listening to Events.
- *
- * @author Gethin James
- * @since 5.0
- */
-public interface EventMessageListener {
-
-    void onEvent(Event event);
+public enum EventType implements Serializable
+{
+    CONTENTGET, CONTENTPUT, NODEFAVOURITED, NODEUNFAVOURITED, NODECOMMENTED, NODECOMMENTSLISTED, NODELIKED, NODEUNLIKED, NODEUPDATED, NODETAGGED,
+    NODETAGREMOVED, NODEADDED, NODEREMOVED, NODEVERSIONED, EXCEPTIONGENERATED, SYNCSUBSCRIBE, SYNCUNSUBSCRIBE;
 }

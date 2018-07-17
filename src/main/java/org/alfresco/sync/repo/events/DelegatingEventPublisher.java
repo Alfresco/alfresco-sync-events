@@ -23,19 +23,47 @@
  * along with Alfresco. If not, see <http://www.gnu.org/licenses/>.
  * #L%
  */
-package org.alfresco.listener.message;
+package org.alfresco.sync.repo.events;
 
 import org.alfresco.sync.events.types.Event;
 
-
 /**
- * Something that listens to Alfresco events.
- * Basic interface to implement when listening to Events.
+ * An implementation of EventPublisher that delegates to another implementation
  *
  * @author Gethin James
  * @since 5.0
  */
-public interface EventMessageListener {
+public class DelegatingEventPublisher implements EventPublisher {
 
-    void onEvent(Event event);
+    EventPublisher delegate;
+    
+    @Override
+    public void publishEvent(Event event)
+    {
+        if (delegate!=null) delegate.publishEvent(event);
+    }
+
+    @Override
+    public void publishEvent(EventPreparator prep)
+    {
+        if (delegate!=null) delegate.publishEvent(prep);
+    }
+
+    /**
+     * Register an EventPublisher to do the work
+     * @param delegate EventPublisher
+     */
+    public void registerDelegate(EventPublisher delegate)
+    {
+        this.delegate = delegate;
+    }
+    
+    /**
+     * UnRegister an EventPublisher
+     */
+    public void unregisterDelegate()
+    {
+        this.delegate = null;
+    }
+
 }

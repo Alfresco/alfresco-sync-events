@@ -23,19 +23,27 @@
  * along with Alfresco. If not, see <http://www.gnu.org/licenses/>.
  * #L%
  */
-package org.alfresco.listener.message;
+package org.alfresco.sync.repo.events;
 
 import org.alfresco.sync.events.types.Event;
 
 
 /**
- * Something that listens to Alfresco events.
- * Basic interface to implement when listening to Events.
- *
- * @author Gethin James
- * @since 5.0
- */
-public interface EventMessageListener {
+* Creates and prepares event information.
+*
+* The primary reason for this interface is to allow for deferred creation
+* of the Event.  If a NoOpEventPublisher is being used then the prepareEvent()
+* method will never get called.
+*
+* As of Java 8 a Lambda expression could be used as the implementation of 
+* this FunctionalInterface
+*
+* @author Gethin James
+* @since 5.0
+**/
 
-    void onEvent(Event event);
+//@FunctionalInterface
+public interface EventPreparator
+{
+    public Event prepareEvent(String user, String networkId, String transactionId);
 }

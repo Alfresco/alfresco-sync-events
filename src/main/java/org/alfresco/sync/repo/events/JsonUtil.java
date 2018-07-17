@@ -23,19 +23,48 @@
  * along with Alfresco. If not, see <http://www.gnu.org/licenses/>.
  * #L%
  */
-package org.alfresco.listener.message;
+package org.alfresco.sync.repo.events;
 
-import org.alfresco.sync.events.types.Event;
+import java.io.IOException;
+import java.util.Map;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- * Something that listens to Alfresco events.
- * Basic interface to implement when listening to Events.
+ * Basic utility class for use with the Jackson json library.
  *
  * @author Gethin James
- * @since 5.0
  */
-public interface EventMessageListener {
-
-    void onEvent(Event event);
+public class JsonUtil
+{
+    private static ObjectMapper mapper = new ObjectMapper();
+    
+    public static String writeData(Map<String, ?> data)
+    {
+        try
+        {
+            return mapper.writeValueAsString(data);
+        }
+        catch (JsonProcessingException error)
+        {
+            // do nothing
+            return "{}";
+        }
+    }
+    
+    
+    @SuppressWarnings("unchecked")
+    public static Map<String, ?> readData(String data)
+    {
+        try
+        {
+            return mapper.readValue(data.getBytes(), Map.class);
+        }
+        catch (IOException error)
+        {
+            // do nothing
+            return null;
+        }
+    }
 }

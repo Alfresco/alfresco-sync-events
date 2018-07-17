@@ -23,19 +23,18 @@
  * along with Alfresco. If not, see <http://www.gnu.org/licenses/>.
  * #L%
  */
-package org.alfresco.listener.message;
+package org.alfresco.sync.events.types;
 
-import org.alfresco.sync.events.types.Event;
-
+import java.util.List;
 
 /**
- * Something that listens to Alfresco events.
- * Basic interface to implement when listening to Events.
- *
+ * An Event that occurs on an Alfresco node with information
+ * about the node beyond the Basic id/type
+ * 
  * @author Gethin James
- * @since 5.0
  */
-public interface EventMessageListener {
-
-    void onEvent(Event event);
+public interface NodeInfoEvent extends BasicNodeEvent
+{
+    public List<String> getPaths();
+    public List<List<String>> getParentNodeIds();
 }

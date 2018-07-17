@@ -23,19 +23,16 @@
  * along with Alfresco. If not, see <http://www.gnu.org/licenses/>.
  * #L%
  */
-package org.alfresco.listener.message;
-
-import org.alfresco.sync.events.types.Event;
-
+package org.alfresco.sync.events.types;
 
 /**
- * Something that listens to Alfresco events.
- * Basic interface to implement when listening to Events.
- *
+ * An event that occurs in the Alfresco repository
+ * 
  * @author Gethin James
- * @since 5.0
+ * @author steveglover
  */
-public interface EventMessageListener {
+public interface RepositoryEvent extends TenantedEvent, ClientEvent
+{
+    public String getTxnId();
 
-    void onEvent(Event event);
 }

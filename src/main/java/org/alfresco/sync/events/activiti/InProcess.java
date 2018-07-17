@@ -23,19 +23,15 @@
  * along with Alfresco. If not, see <http://www.gnu.org/licenses/>.
  * #L%
  */
-package org.alfresco.listener.message;
-
-import org.alfresco.sync.events.types.Event;
-
+package org.alfresco.sync.events.activiti;
 
 /**
- * Something that listens to Alfresco events.
- * Basic interface to implement when listening to Events.
+ * Something that takes place in a running Activiti process.
  *
  * @author Gethin James
  * @since 5.0
  */
-public interface EventMessageListener {
-
-    void onEvent(Event event);
+public interface InProcess
+{
+    public String getProcessInstanceId();
 }

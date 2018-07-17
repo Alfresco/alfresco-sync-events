@@ -23,19 +23,18 @@
  * along with Alfresco. If not, see <http://www.gnu.org/licenses/>.
  * #L%
  */
-package org.alfresco.listener.message;
-
-import org.alfresco.sync.events.types.Event;
-
+package org.alfresco.sync.events.types;
 
 /**
- * Something that listens to Alfresco events.
- * Basic interface to implement when listening to Events.
  *
+ * An event that understands its position relative to the transaction in which the event occurs.
+ * 
  * @author Gethin James
  * @since 5.0
  */
-public interface EventMessageListener {
+public interface TransactionOrderingAware
+{
 
-    void onEvent(Event event);
+    public Long getSeqNumber();
+
 }

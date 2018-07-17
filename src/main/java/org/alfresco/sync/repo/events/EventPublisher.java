@@ -23,19 +23,27 @@
  * along with Alfresco. If not, see <http://www.gnu.org/licenses/>.
  * #L%
  */
-package org.alfresco.listener.message;
+package org.alfresco.sync.repo.events;
 
 import org.alfresco.sync.events.types.Event;
 
-
 /**
- * Something that listens to Alfresco events.
- * Basic interface to implement when listening to Events.
+ * EventPublisher can be used to broadcast events.
  *
  * @author Gethin James
  * @since 5.0
  */
-public interface EventMessageListener {
+public interface EventPublisher
+{    
+    /**
+     * Publish the event
+     * @param event Event
+     */
+    void publishEvent(Event event);
 
-    void onEvent(Event event);
+    /**
+     * Publish the event using an EventPreparator
+     * @param prep EventPreparator
+     */
+    void publishEvent(EventPreparator prep);
 }

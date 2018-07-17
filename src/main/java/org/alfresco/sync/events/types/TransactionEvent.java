@@ -23,19 +23,30 @@
  * along with Alfresco. If not, see <http://www.gnu.org/licenses/>.
  * #L%
  */
-package org.alfresco.listener.message;
+package org.alfresco.sync.events.types;
 
-import org.alfresco.sync.events.types.Event;
-
+import org.alfresco.sync.repo.Client;
 
 /**
- * Something that listens to Alfresco events.
- * Basic interface to implement when listening to Events.
- *
- * @author Gethin James
- * @since 5.0
- */
-public interface EventMessageListener {
+*
+* A TransactionEvent event that is also aware of its ordering.
+* 
+* @author Gethin James
+* @since 5.0
+*/
+public abstract class TransactionEvent extends RepositoryEventImpl
+{
+    private static final long serialVersionUID = -3217767152720757859L;
 
-    void onEvent(Event event);
+    public TransactionEvent()
+    {
+        super();
+    }
+
+    public TransactionEvent(long seqNumber, String type, String txnId, String networkId, long timestamp,
+                String username, Client client)
+    {
+        super(seqNumber, type, txnId, networkId, timestamp, username, client);
+    }
+
 }

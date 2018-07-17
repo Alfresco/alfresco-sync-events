@@ -1,7 +1,7 @@
-### Alfresco Repository Events
-Alfresco Repository Events is a library packaged as a jar file which is a part of [Alfresco Content Services Repository](https://community.alfresco.com/docs/DOC-6385-project-overview-repository).
+### Alfresco Sync Events
+Alfresco Sync Events is a library packaged as a jar file which is a part of [Alfresco Content Services Repository](https://community.alfresco.com/docs/DOC-6385-project-overview-repository).
 
-The library contains the Repository Events POJOs.
+The library contains the Events POJOs for the Sync service.
 
 
 ### Building and testing
@@ -17,7 +17,7 @@ The artifacts can be obtained by:
 ~~~
 <dependency>
   <groupId>org.alfresco</groupId>
-  <artifactId>alfresco-repository-events</artifactId>
+  <artifactId>alfresco-sync-events</artifactId>
   <version>version</version>
 </dependency>
 ~~~

@@ -23,19 +23,17 @@
  * along with Alfresco. If not, see <http://www.gnu.org/licenses/>.
  * #L%
  */
-package org.alfresco.listener.message;
+package org.alfresco.sync.events.types;
 
-import org.alfresco.sync.events.types.Event;
-
+import org.alfresco.sync.repo.Client;
 
 /**
- * Something that listens to Alfresco events.
- * Basic interface to implement when listening to Events.
- *
+ * An event that is generated and we are able to get information
+ * about the Alfresco client, eg. webdav, ftp, cmis
+ * 
  * @author Gethin James
- * @since 5.0
  */
-public interface EventMessageListener {
-
-    void onEvent(Event event);
+public interface ClientEvent extends Event
+{
+    public Client getClient();
 }

@@ -8,15 +8,15 @@
         <version>9</version>
     </parent>
 
-    <name>Alfresco Repository Events</name>
-    <artifactId>alfresco-repository-events</artifactId>
+    <name>Alfresco Sync Events</name>
+    <artifactId>alfresco-sync-events</artifactId>
     <version>1.2.14-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <scm>
-        <connection>scm:git:git@github.com:Alfresco/alfresco-repository-events.git</connection>
-        <developerConnection>scm:git:git@github.com:Alfresco/alfresco-repository-events.git</developerConnection>
-        <url>https://github.com/Alfresco/alfresco-repository-events</url>
+        <connection>scm:git:git@github.com:Alfresco/alfresco-sync-events.git</connection>
+        <developerConnection>scm:git:git@github.com:Alfresco/alfresco-sync-events.git</developerConnection>
+        <url>https://github.com/Alfresco/alfresco-sync-events</url>
         <tag>HEAD</tag>
     </scm>
 

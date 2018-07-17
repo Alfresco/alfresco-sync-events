@@ -23,19 +23,31 @@
  * along with Alfresco. If not, see <http://www.gnu.org/licenses/>.
  * #L%
  */
-package org.alfresco.listener.message;
+package org.alfresco.sync.events.test;
+
+import static org.junit.Assert.*;
+
+import java.util.List;
 
 import org.alfresco.sync.events.types.Event;
-
+import org.junit.Test;
 
 /**
- * Something that listens to Alfresco events.
- * Basic interface to implement when listening to Events.
+ * Just tests the creation of many of the events
  *
  * @author Gethin James
- * @since 5.0
  */
-public interface EventMessageListener {
+public class TestEventCreation
+{
 
-    void onEvent(Event event);
+    @Test
+    public void test()
+    {
+        List<Event> events = EventFactory.createEvents("mysite", "my user");
+        assertNotNull(events);
+        
+        events = EventFactory.createActivitiEvents("my user");
+        assertNotNull(events);
+    }
+
 }

@@ -23,19 +23,14 @@
  * along with Alfresco. If not, see <http://www.gnu.org/licenses/>.
  * #L%
  */
-package org.alfresco.listener.message;
-
-import org.alfresco.sync.events.types.Event;
-
+package org.alfresco.sync.events.types;
 
 /**
- * Something that listens to Alfresco events.
- * Basic interface to implement when listening to Events.
+ * 
+ * @author sglover
  *
- * @author Gethin James
- * @since 5.0
  */
-public interface EventMessageListener {
-
-    void onEvent(Event event);
+public enum PathElementType
+{
+    Attribute, ChildAssoc, Descendant, Parent, Self, Simple, SimplePath;
 }

@@ -23,19 +23,36 @@
  * along with Alfresco. If not, see <http://www.gnu.org/licenses/>.
  * #L%
  */
-package org.alfresco.listener.message;
+package org.alfresco.sync.events.types;
 
-import org.alfresco.sync.events.types.Event;
+import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
+import org.alfresco.sync.repo.Client;
 
 /**
- * Something that listens to Alfresco events.
- * Basic interface to implement when listening to Events.
+ * Node favourited event.
+ * 
+ * @author steveglover
  *
- * @author Gethin James
- * @since 5.0
  */
-public interface EventMessageListener {
+public class NodeFavouritedEvent extends NodeEvent
+{
+    private static final long serialVersionUID = 5425423898822770070L;
 
-    void onEvent(Event event);
+    public static final String EVENT_TYPE = "NODEFAVOURITED";
+
+    public NodeFavouritedEvent()
+    {
+    }
+
+    public NodeFavouritedEvent(long seqNumber, String name, String txnId, long time, String networkId, String siteId,
+            String nodeId, String nodeType, List<String> paths, List<List<String>> pathNodeIds, String userId,
+            Long modificationTime, Client client, Set<String> aspects, Map<String, Serializable> properties)
+    {
+        super(seqNumber, name, EVENT_TYPE, txnId, time, networkId, siteId, nodeId, nodeType, paths, pathNodeIds, userId,
+                modificationTime, client, aspects, properties);
+    }
 }

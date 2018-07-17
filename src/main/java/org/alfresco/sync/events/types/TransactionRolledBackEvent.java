@@ -23,19 +23,36 @@
  * along with Alfresco. If not, see <http://www.gnu.org/licenses/>.
  * #L%
  */
-package org.alfresco.listener.message;
+package org.alfresco.sync.events.types;
 
-import org.alfresco.sync.events.types.Event;
-
+import org.alfresco.sync.repo.Client;
 
 /**
- * Something that listens to Alfresco events.
- * Basic interface to implement when listening to Events.
+ * Transaction rollback event.
+ * 
+ * @author steveglover
  *
- * @author Gethin James
- * @since 5.0
  */
-public interface EventMessageListener {
+public class TransactionRolledBackEvent extends TransactionEvent
+{
+    private static final long serialVersionUID = -921613586043213951L;
 
-    void onEvent(Event event);
+    public static final String EVENT_TYPE = "TRANSACTION_ROLLBACK";
+
+    public TransactionRolledBackEvent()
+    {
+    }
+
+    public TransactionRolledBackEvent(long seqNumber, String txnId, String networkId, long timestamp, String username,
+                Client client)
+    {
+        super(seqNumber, EVENT_TYPE, txnId, networkId, timestamp, username, client);
+    }
+
+    @Override
+    public String toString()
+    {
+        return "TransactionRollbackEvent [id=" + id + ", type=" + type
+                + ", txnId=" + txnId + ", timestamp=" + timestamp + "]";
+    }
 }

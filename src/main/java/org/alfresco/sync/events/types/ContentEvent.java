@@ -23,19 +23,22 @@
  * along with Alfresco. If not, see <http://www.gnu.org/licenses/>.
  * #L%
  */
-package org.alfresco.listener.message;
-
-import org.alfresco.sync.events.types.Event;
-
+package org.alfresco.sync.events.types;
 
 /**
- * Something that listens to Alfresco events.
- * Basic interface to implement when listening to Events.
- *
+ * An event that occurs on an Alfresco content, we can get more information.
+ * 
  * @author Gethin James
- * @since 5.0
  */
-public interface EventMessageListener {
-
-    void onEvent(Event event);
+public interface ContentEvent extends BasicNodeEvent
+{
+    public static final String DOWNLOAD = "content.download";
+    public static final String READ_RANGE = "content.range";
+    
+    public long getSize();
+    public String getMimeType();
+    public String getEncoding();
+    public void setSize(long size);
+    public void setMimeType(String mimeType);
+    public void setEncoding(String encoding);
 }

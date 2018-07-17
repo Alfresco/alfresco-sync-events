@@ -23,19 +23,36 @@
  * along with Alfresco. If not, see <http://www.gnu.org/licenses/>.
  * #L%
  */
-package org.alfresco.listener.message;
+package org.alfresco.sync.events;
 
-import org.alfresco.sync.events.types.Event;
-
+import java.util.HashSet;
+import java.util.Set;
 
 /**
- * Something that listens to Alfresco events.
- * Basic interface to implement when listening to Events.
+ * In-memory event type registry.
+ * 
+ * @author steveglover
  *
- * @author Gethin James
- * @since 5.0
  */
-public interface EventMessageListener {
+public class EventRegistryImpl implements EventRegistry
+{
+    private Set<String> eventTypes = new HashSet<String>();
 
-    void onEvent(Event event);
+    @Override
+    public void addEventType(String eventType)
+    {
+        eventTypes.add(eventType);
+    }
+
+    @Override
+    public Set<String> getEventTypes()
+    {
+        return eventTypes;
+    }
+
+    @Override
+    public boolean isEventTypeRegistered(String eventType)
+    {
+        return eventTypes.contains(eventType);
+    }
 }
