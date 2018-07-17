@@ -10,14 +10,14 @@
 
     <name>Alfresco Sync Events</name>
     <artifactId>alfresco-sync-events</artifactId>
-    <version>1.2.14-SNAPSHOT</version>
+    <version>1.2.14</version>
     <packaging>jar</packaging>
 
     <scm>
         <connection>scm:git:git@github.com:Alfresco/alfresco-sync-events.git</connection>
         <developerConnection>scm:git:git@github.com:Alfresco/alfresco-sync-events.git</developerConnection>
         <url>https://github.com/Alfresco/alfresco-sync-events</url>
-        <tag>HEAD</tag>
+        <tag>alfresco-sync-events-1.2.14</tag>
     </scm>
 
     <distributionManagement>
