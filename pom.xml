@@ -32,7 +32,7 @@
     </distributionManagement>
 
     <properties>
-        <dependency.jackson.version>2.9.5</dependency.jackson.version>
+        <dependency.jackson.version>2.9.10.7</dependency.jackson.version>
     </properties>
 
     <dependencies>
